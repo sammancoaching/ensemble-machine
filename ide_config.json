@@ -1,0 +1,40 @@
+{
+    "clion": {
+        "name": "CLion 2021.2",
+        "extra_packages": [],
+        "snap_packages": [],
+        "environment": {}
+    },
+    "idea": {
+        "name": "IntelliJ IDEA Ultimate 2021.2",
+        "extra_packages": ["openjdk-17-jdk"],
+        "snap_packages": [],
+        "environment": {}
+    },
+    "pycharm": {
+        "name": "PyCharm Professional Edition 2021.3",
+        "extra_packages": [],
+        "snap_packages": [],
+        "environment": {}
+    },
+    "rider": {
+        "name": "Rider 2021.3.4",
+        "extra_packages": ["mono-devel", "mono-roslyn", "libsecret-1-0", "gnome-keyring"],
+        "snap_packages": ["dotnet-sdk"],
+        "environment": {
+            "DOTNET_ROOT": "/snap/dotnet-sdk/current"
+        }
+    },
+    "webstorm": {
+        "name": "WebStorm 2021.2",
+        "extra_packages": ["nodejs", "npm"],
+        "snap_packages": [],
+        "environment": {}
+    },
+    "goland": {
+        "name": "GoLand 2021.2",
+        "extra_packages": ["golang-go"],
+        "snap_packages": [],
+        "environment": {}
+    }
+}

@@ -1,0 +1,25 @@
+[project]
+name = "ensemble-machine"
+version = "0.2.0"
+description = "Utilities to create remote EC2 machines for coding exercises"
+authors = []
+license = "MIT"
+readme = "README.md"
+python = "^3.6"
+homepage = ""
+repository = ""
+documentation = ""
+
+keywords = ["packaging", "pyproject.toml"]
+
+classifiers = [
+    "Topic :: Software Development"
+]
+
+[dependencies]
+
+[dev-dependencies]
+
+[scripts]
+
+[build-system]

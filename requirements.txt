@@ -1,0 +1,5 @@
+awscli
+boto3
+click
+approvaltests>=7.4.0
+fabric

@@ -1,0 +1,2619 @@
+{
+  "Reservations": [
+    {
+      "Groups": [],
+      "Instances": [
+        {
+          "AmiLaunchIndex": 0,
+          "ImageId": "ami-0ed17ff3d78e74799",
+          "InstanceId": "i-04221b2ba6780a76e",
+          "InstanceType": "t3.large",
+          "KeyName": "projector",
+          "LaunchTime": "2021-05-31T11:22:14+00:00",
+          "Monitoring": {
+            "State": "disabled"
+          },
+          "Placement": {
+            "AvailabilityZone": "eu-north-1c",
+            "GroupName": "",
+            "Tenancy": "default"
+          },
+          "PrivateDnsName": "ip-172-31-2-213.eu-north-1.compute.internal",
+          "PrivateIpAddress": "172.31.2.213",
+          "ProductCodes": [],
+          "PublicDnsName": "",
+          "State": {
+            "Code": 80,
+            "Name": "stopped"
+          },
+          "StateTransitionReason": "User initiated (2021-06-03 06:14:03 GMT)",
+          "SubnetId": "subnet-ca270f89",
+          "VpcId": "vpc-2c658b43",
+          "Architecture": "x86_64",
+          "BlockDeviceMappings": [
+            {
+              "DeviceName": "/dev/sda1",
+              "Ebs": {
+                "AttachTime": "2021-05-31T11:22:15+00:00",
+                "DeleteOnTermination": true,
+                "Status": "attached",
+                "VolumeId": "vol-098da0ce1cac55afc"
+              }
+            }
+          ],
+          "ClientToken": "7ebdc41d-be57-4ecb-acb0-46e298962218",
+          "EbsOptimized": false,
+          "EnaSupport": true,
+          "Hypervisor": "xen",
+          "NetworkInterfaces": [
+            {
+              "Attachment": {
+                "AttachTime": "2021-05-31T11:22:14+00:00",
+                "AttachmentId": "eni-attach-00ad764a8689e9f63",
+                "DeleteOnTermination": true,
+                "DeviceIndex": 0,
+                "Status": "attached",
+                "NetworkCardIndex": 0
+              },
+              "Description": "",
+              "Groups": [
+                {
+                  "GroupName": "jetbrains-projector",
+                  "GroupId": "sg-0eec46ebc5e138c77"
+                }
+              ],
+              "Ipv6Addresses": [],
+              "MacAddress": "0e:9a:69:19:55:da",
+              "NetworkInterfaceId": "eni-0961eb62fcea02eab",
+              "OwnerId": "593382876411",
+              "PrivateDnsName": "ip-172-31-2-213.eu-north-1.compute.internal",
+              "PrivateIpAddress": "172.31.2.213",
+              "PrivateIpAddresses": [
+                {
+                  "Primary": true,
+                  "PrivateDnsName": "ip-172-31-2-213.eu-north-1.compute.internal",
+                  "PrivateIpAddress": "172.31.2.213"
+                }
+              ],
+              "SourceDestCheck": true,
+              "Status": "in-use",
+              "SubnetId": "subnet-ca270f89",
+              "VpcId": "vpc-2c658b43",
+              "InterfaceType": "interface"
+            }
+          ],
+          "RootDeviceName": "/dev/sda1",
+          "RootDeviceType": "ebs",
+          "SecurityGroups": [
+            {
+              "GroupName": "jetbrains-projector",
+              "GroupId": "sg-0eec46ebc5e138c77"
+            }
+          ],
+          "SourceDestCheck": true,
+          "StateReason": {
+            "Code": "Client.UserInitiatedShutdown",
+            "Message": "Client.UserInitiatedShutdown: User initiated shutdown"
+          },
+          "Tags": [
+            {
+              "Key": "SammanCoach",
+              "Value": "emily"
+            },
+            {
+              "Key": "Name",
+              "Value": "3a73353f-clion.codekata.proagile.link"
+            }
+          ],
+          "VirtualizationType": "hvm",
+          "CpuOptions": {
+            "CoreCount": 1,
+            "ThreadsPerCore": 2
+          },
+          "CapacityReservationSpecification": {
+            "CapacityReservationPreference": "open"
+          },
+          "HibernationOptions": {
+            "Configured": false
+          },
+          "MetadataOptions": {
+            "State": "applied",
+            "HttpTokens": "optional",
+            "HttpPutResponseHopLimit": 1,
+            "HttpEndpoint": "enabled"
+          },
+          "EnclaveOptions": {
+            "Enabled": false
+          }
+        }
+      ],
+      "OwnerId": "593382876411",
+      "ReservationId": "r-055d58a283b80be12"
+    },
+    {
+      "Groups": [],
+      "Instances": [
+        {
+          "AmiLaunchIndex": 0,
+          "ImageId": "ami-0ed17ff3d78e74799",
+          "InstanceId": "i-067ce32c58b700fe8",
+          "InstanceType": "t3.large",
+          "KeyName": "projector",
+          "LaunchTime": "2021-06-03T13:25:47+00:00",
+          "Monitoring": {
+            "State": "disabled"
+          },
+          "Placement": {
+            "AvailabilityZone": "eu-north-1c",
+            "GroupName": "",
+            "Tenancy": "default"
+          },
+          "PrivateDnsName": "ip-172-31-11-62.eu-north-1.compute.internal",
+          "PrivateIpAddress": "172.31.11.62",
+          "ProductCodes": [],
+          "PublicDnsName": "",
+          "State": {
+            "Code": 80,
+            "Name": "stopped"
+          },
+          "StateTransitionReason": "User initiated (2021-06-25 08:15:24 GMT)",
+          "SubnetId": "subnet-ca270f89",
+          "VpcId": "vpc-2c658b43",
+          "Architecture": "x86_64",
+          "BlockDeviceMappings": [
+            {
+              "DeviceName": "/dev/sda1",
+              "Ebs": {
+                "AttachTime": "2021-06-03T13:25:48+00:00",
+                "DeleteOnTermination": true,
+                "Status": "attached",
+                "VolumeId": "vol-0bb2bb5e2f696ec77"
+              }
+            }
+          ],
+          "ClientToken": "b90a6b27-64c7-456b-b3e9-64336c1aedc8",
+          "EbsOptimized": false,
+          "EnaSupport": true,
+          "Hypervisor": "xen",
+          "NetworkInterfaces": [
+            {
+              "Attachment": {
+                "AttachTime": "2021-06-03T13:25:47+00:00",
+                "AttachmentId": "eni-attach-01f5540a49a491cec",
+                "DeleteOnTermination": true,
+                "DeviceIndex": 0,
+                "Status": "attached",
+                "NetworkCardIndex": 0
+              },
+              "Description": "",
+              "Groups": [
+                {
+                  "GroupName": "jetbrains-projector",
+                  "GroupId": "sg-0eec46ebc5e138c77"
+                }
+              ],
+              "Ipv6Addresses": [],
+              "MacAddress": "0e:e8:d5:2f:de:94",
+              "NetworkInterfaceId": "eni-09d421633c4852420",
+              "OwnerId": "593382876411",
+              "PrivateDnsName": "ip-172-31-11-62.eu-north-1.compute.internal",
+              "PrivateIpAddress": "172.31.11.62",
+              "PrivateIpAddresses": [
+                {
+                  "Primary": true,
+                  "PrivateDnsName": "ip-172-31-11-62.eu-north-1.compute.internal",
+                  "PrivateIpAddress": "172.31.11.62"
+                }
+              ],
+              "SourceDestCheck": true,
+              "Status": "in-use",
+              "SubnetId": "subnet-ca270f89",
+              "VpcId": "vpc-2c658b43",
+              "InterfaceType": "interface"
+            }
+          ],
+          "RootDeviceName": "/dev/sda1",
+          "RootDeviceType": "ebs",
+          "SecurityGroups": [
+            {
+              "GroupName": "jetbrains-projector",
+              "GroupId": "sg-0eec46ebc5e138c77"
+            }
+          ],
+          "SourceDestCheck": true,
+          "StateReason": {
+            "Code": "Client.UserInitiatedShutdown",
+            "Message": "Client.UserInitiatedShutdown: User initiated shutdown"
+          },
+          "Tags": [
+            {
+              "Key": "Name",
+              "Value": "692fe0c2-rider.codekata.proagile.link"
+            },
+            {
+              "Key": "SammanCoach",
+              "Value": "ebjaolo"
+            }
+          ],
+          "VirtualizationType": "hvm",
+          "CpuOptions": {
+            "CoreCount": 1,
+            "ThreadsPerCore": 2
+          },
+          "CapacityReservationSpecification": {
+            "CapacityReservationPreference": "open"
+          },
+          "HibernationOptions": {
+            "Configured": false
+          },
+          "MetadataOptions": {
+            "State": "applied",
+            "HttpTokens": "optional",
+            "HttpPutResponseHopLimit": 1,
+            "HttpEndpoint": "enabled"
+          },
+          "EnclaveOptions": {
+            "Enabled": false
+          }
+        }
+      ],
+      "OwnerId": "593382876411",
+      "ReservationId": "r-070f2fac4a7b1dbad"
+    },
+    {
+      "Groups": [],
+      "Instances": [
+        {
+          "AmiLaunchIndex": 0,
+          "ImageId": "ami-0ed17ff3d78e74799",
+          "InstanceId": "i-0490a14f0963de4f7",
+          "InstanceType": "t3.large",
+          "KeyName": "projector",
+          "LaunchTime": "2021-06-11T09:56:18+00:00",
+          "Monitoring": {
+            "State": "disabled"
+          },
+          "Placement": {
+            "AvailabilityZone": "eu-north-1c",
+            "GroupName": "",
+            "Tenancy": "default"
+          },
+          "PrivateDnsName": "ip-172-31-13-25.eu-north-1.compute.internal",
+          "PrivateIpAddress": "172.31.13.25",
+          "ProductCodes": [],
+          "PublicDnsName": "",
+          "State": {
+            "Code": 80,
+            "Name": "stopped"
+          },
+          "StateTransitionReason": "User initiated (2021-06-25 08:15:24 GMT)",
+          "SubnetId": "subnet-ca270f89",
+          "VpcId": "vpc-2c658b43",
+          "Architecture": "x86_64",
+          "BlockDeviceMappings": [
+            {
+              "DeviceName": "/dev/sda1",
+              "Ebs": {
+                "AttachTime": "2021-06-11T09:56:18+00:00",
+                "DeleteOnTermination": true,
+                "Status": "attached",
+                "VolumeId": "vol-00a5396f139064855"
+              }
+            }
+          ],
+          "ClientToken": "0f18b897-a9ae-4cc7-8a40-951d2e5b7e05",
+          "EbsOptimized": false,
+          "EnaSupport": true,
+          "Hypervisor": "xen",
+          "NetworkInterfaces": [
+            {
+              "Attachment": {
+                "AttachTime": "2021-06-11T09:56:18+00:00",
+                "AttachmentId": "eni-attach-04163bcd384c04f0d",
+                "DeleteOnTermination": true,
+                "DeviceIndex": 0,
+                "Status": "attached",
+                "NetworkCardIndex": 0
+              },
+              "Description": "",
+              "Groups": [
+                {
+                  "GroupName": "jetbrains-projector",
+                  "GroupId": "sg-0eec46ebc5e138c77"
+                }
+              ],
+              "Ipv6Addresses": [],
+              "MacAddress": "0e:fe:c1:dd:58:60",
+              "NetworkInterfaceId": "eni-0aaec7d62921a41b8",
+              "OwnerId": "593382876411",
+              "PrivateDnsName": "ip-172-31-13-25.eu-north-1.compute.internal",
+              "PrivateIpAddress": "172.31.13.25",
+              "PrivateIpAddresses": [
+                {
+                  "Primary": true,
+                  "PrivateDnsName": "ip-172-31-13-25.eu-north-1.compute.internal",
+                  "PrivateIpAddress": "172.31.13.25"
+                }
+              ],
+              "SourceDestCheck": true,
+              "Status": "in-use",
+              "SubnetId": "subnet-ca270f89",
+              "VpcId": "vpc-2c658b43",
+              "InterfaceType": "interface"
+            }
+          ],
+          "RootDeviceName": "/dev/sda1",
+          "RootDeviceType": "ebs",
+          "SecurityGroups": [
+            {
+              "GroupName": "jetbrains-projector",
+              "GroupId": "sg-0eec46ebc5e138c77"
+            }
+          ],
+          "SourceDestCheck": true,
+          "StateReason": {
+            "Code": "Client.UserInitiatedShutdown",
+            "Message": "Client.UserInitiatedShutdown: User initiated shutdown"
+          },
+          "Tags": [
+            {
+              "Key": "Name",
+              "Value": "1d2ff333-clion.codekata.proagile.link"
+            },
+            {
+              "Key": "SammanCoach",
+              "Value": "ebjaolo"
+            }
+          ],
+          "VirtualizationType": "hvm",
+          "CpuOptions": {
+            "CoreCount": 1,
+            "ThreadsPerCore": 2
+          },
+          "CapacityReservationSpecification": {
+            "CapacityReservationPreference": "open"
+          },
+          "HibernationOptions": {
+            "Configured": false
+          },
+          "MetadataOptions": {
+            "State": "applied",
+            "HttpTokens": "optional",
+            "HttpPutResponseHopLimit": 1,
+            "HttpEndpoint": "enabled"
+          },
+          "EnclaveOptions": {
+            "Enabled": false
+          }
+        }
+      ],
+      "OwnerId": "593382876411",
+      "ReservationId": "r-06b79e854b2fd5a3f"
+    },
+    {
+      "Groups": [],
+      "Instances": [
+        {
+          "AmiLaunchIndex": 0,
+          "ImageId": "ami-0ed17ff3d78e74799",
+          "InstanceId": "i-048f82a8839a68f55",
+          "InstanceType": "t3.large",
+          "KeyName": "projector",
+          "LaunchTime": "2021-06-02T05:27:15+00:00",
+          "Monitoring": {
+            "State": "disabled"
+          },
+          "Placement": {
+            "AvailabilityZone": "eu-north-1a",
+            "GroupName": "",
+            "Tenancy": "default"
+          },
+          "PrivateDnsName": "ip-172-31-22-29.eu-north-1.compute.internal",
+          "PrivateIpAddress": "172.31.22.29",
+          "ProductCodes": [],
+          "PublicDnsName": "",
+          "State": {
+            "Code": 80,
+            "Name": "stopped"
+          },
+          "StateTransitionReason": "User initiated",
+          "SubnetId": "subnet-b82ec1d1",
+          "VpcId": "vpc-2c658b43",
+          "Architecture": "x86_64",
+          "BlockDeviceMappings": [
+            {
+              "DeviceName": "/dev/sda1",
+              "Ebs": {
+                "AttachTime": "2021-05-06T11:18:41+00:00",
+                "DeleteOnTermination": true,
+                "Status": "attached",
+                "VolumeId": "vol-0dc38b1c473375560"
+              }
+            }
+          ],
+          "ClientToken": "86db7846-55c8-4978-8419-b1d23850d526",
+          "EbsOptimized": false,
+          "EnaSupport": true,
+          "Hypervisor": "xen",
+          "NetworkInterfaces": [
+            {
+              "Attachment": {
+                "AttachTime": "2021-05-06T11:18:40+00:00",
+                "AttachmentId": "eni-attach-02b0f267f3b73e76d",
+                "DeleteOnTermination": true,
+                "DeviceIndex": 0,
+                "Status": "attached",
+                "NetworkCardIndex": 0
+              },
+              "Description": "",
+              "Groups": [
+                {
+                  "GroupName": "jetbrains-projector",
+                  "GroupId": "sg-0eec46ebc5e138c77"
+                }
+              ],
+              "Ipv6Addresses": [],
+              "MacAddress": "06:ff:7f:e8:6f:a6",
+              "NetworkInterfaceId": "eni-01ed18e0ebf3d8d64",
+              "OwnerId": "593382876411",
+              "PrivateDnsName": "ip-172-31-22-29.eu-north-1.compute.internal",
+              "PrivateIpAddress": "172.31.22.29",
+              "PrivateIpAddresses": [
+                {
+                  "Primary": true,
+                  "PrivateDnsName": "ip-172-31-22-29.eu-north-1.compute.internal",
+                  "PrivateIpAddress": "172.31.22.29"
+                }
+              ],
+              "SourceDestCheck": true,
+              "Status": "in-use",
+              "SubnetId": "subnet-b82ec1d1",
+              "VpcId": "vpc-2c658b43",
+              "InterfaceType": "interface"
+            }
+          ],
+          "RootDeviceName": "/dev/sda1",
+          "RootDeviceType": "ebs",
+          "SecurityGroups": [
+            {
+              "GroupName": "jetbrains-projector",
+              "GroupId": "sg-0eec46ebc5e138c77"
+            }
+          ],
+          "SourceDestCheck": true,
+          "StateReason": {
+            "Code": "Client.InstanceInitiatedShutdown",
+            "Message": "Client.InstanceInitiatedShutdown: Instance initiated shutdown"
+          },
+          "Tags": [
+            {
+              "Key": "Name",
+              "Value": "0899b6a8-clion.codekata.proagile.link"
+            },
+            {
+              "Key": "SammanCoach",
+              "Value": "ebjaolo"
+            }
+          ],
+          "VirtualizationType": "hvm",
+          "CpuOptions": {
+            "CoreCount": 1,
+            "ThreadsPerCore": 2
+          },
+          "CapacityReservationSpecification": {
+            "CapacityReservationPreference": "open"
+          },
+          "HibernationOptions": {
+            "Configured": false
+          },
+          "MetadataOptions": {
+            "State": "applied",
+            "HttpTokens": "optional",
+            "HttpPutResponseHopLimit": 1,
+            "HttpEndpoint": "enabled"
+          },
+          "EnclaveOptions": {
+            "Enabled": false
+          }
+        }
+      ],
+      "OwnerId": "593382876411",
+      "ReservationId": "r-06fc5ce6d94f598e6"
+    },
+    {
+      "Groups": [],
+      "Instances": [
+        {
+          "AmiLaunchIndex": 0,
+          "ImageId": "ami-0ed17ff3d78e74799",
+          "InstanceId": "i-07b506f5e4e9fc263",
+          "InstanceType": "t3.large",
+          "KeyName": "projector",
+          "LaunchTime": "2021-06-11T05:51:40+00:00",
+          "Monitoring": {
+            "State": "disabled"
+          },
+          "Placement": {
+            "AvailabilityZone": "eu-north-1a",
+            "GroupName": "",
+            "Tenancy": "default"
+          },
+          "PrivateDnsName": "ip-172-31-28-252.eu-north-1.compute.internal",
+          "PrivateIpAddress": "172.31.28.252",
+          "ProductCodes": [],
+          "PublicDnsName": "",
+          "State": {
+            "Code": 80,
+            "Name": "stopped"
+          },
+          "StateTransitionReason": "User initiated (2021-06-11 13:59:38 GMT)",
+          "SubnetId": "subnet-b82ec1d1",
+          "VpcId": "vpc-2c658b43",
+          "Architecture": "x86_64",
+          "BlockDeviceMappings": [
+            {
+              "DeviceName": "/dev/sda1",
+              "Ebs": {
+                "AttachTime": "2021-05-20T05:49:10+00:00",
+                "DeleteOnTermination": true,
+                "Status": "attached",
+                "VolumeId": "vol-01d031f92e10d98ec"
+              }
+            }
+          ],
+          "ClientToken": "debf6fab-3a19-4d06-b3f8-6321e4d904b9",
+          "EbsOptimized": false,
+          "EnaSupport": true,
+          "Hypervisor": "xen",
+          "NetworkInterfaces": [
+            {
+              "Attachment": {
+                "AttachTime": "2021-05-20T05:49:09+00:00",
+                "AttachmentId": "eni-attach-0780b8e21c7b6a416",
+                "DeleteOnTermination": true,
+                "DeviceIndex": 0,
+                "Status": "attached",
+                "NetworkCardIndex": 0
+              },
+              "Description": "",
+              "Groups": [
+                {
+                  "GroupName": "jetbrains-projector",
+                  "GroupId": "sg-0eec46ebc5e138c77"
+                }
+              ],
+              "Ipv6Addresses": [],
+              "MacAddress": "06:46:4a:08:4d:82",
+              "NetworkInterfaceId": "eni-00ac11240658c3f3b",
+              "OwnerId": "593382876411",
+              "PrivateDnsName": "ip-172-31-28-252.eu-north-1.compute.internal",
+              "PrivateIpAddress": "172.31.28.252",
+              "PrivateIpAddresses": [
+                {
+                  "Primary": true,
+                  "PrivateDnsName": "ip-172-31-28-252.eu-north-1.compute.internal",
+                  "PrivateIpAddress": "172.31.28.252"
+                }
+              ],
+              "SourceDestCheck": true,
+              "Status": "in-use",
+              "SubnetId": "subnet-b82ec1d1",
+              "VpcId": "vpc-2c658b43",
+              "InterfaceType": "interface"
+            }
+          ],
+          "RootDeviceName": "/dev/sda1",
+          "RootDeviceType": "ebs",
+          "SecurityGroups": [
+            {
+              "GroupName": "jetbrains-projector",
+              "GroupId": "sg-0eec46ebc5e138c77"
+            }
+          ],
+          "SourceDestCheck": true,
+          "StateReason": {
+            "Code": "Client.UserInitiatedShutdown",
+            "Message": "Client.UserInitiatedShutdown: User initiated shutdown"
+          },
+          "Tags": [
+            {
+              "Key": "SammanCoach",
+              "Value": "emily"
+            },
+            {
+              "Key": "Name",
+              "Value": "808c807c-pycharm.codekata.proagile.link"
+            }
+          ],
+          "VirtualizationType": "hvm",
+          "CpuOptions": {
+            "CoreCount": 1,
+            "ThreadsPerCore": 2
+          },
+          "CapacityReservationSpecification": {
+            "CapacityReservationPreference": "open"
+          },
+          "HibernationOptions": {
+            "Configured": false
+          },
+          "MetadataOptions": {
+            "State": "applied",
+            "HttpTokens": "optional",
+            "HttpPutResponseHopLimit": 1,
+            "HttpEndpoint": "enabled"
+          },
+          "EnclaveOptions": {
+            "Enabled": false
+          }
+        }
+      ],
+      "OwnerId": "593382876411",
+      "ReservationId": "r-0bd334a49b63a5d10"
+    },
+    {
+      "Groups": [],
+      "Instances": [
+        {
+          "AmiLaunchIndex": 0,
+          "ImageId": "ami-0ed17ff3d78e74799",
+          "InstanceId": "i-050949b33f998b878",
+          "InstanceType": "t3.large",
+          "KeyName": "projector",
+          "LaunchTime": "2021-05-25T15:31:36+00:00",
+          "Monitoring": {
+            "State": "disabled"
+          },
+          "Placement": {
+            "AvailabilityZone": "eu-north-1a",
+            "GroupName": "",
+            "Tenancy": "default"
+          },
+          "PrivateDnsName": "ip-172-31-25-131.eu-north-1.compute.internal",
+          "PrivateIpAddress": "172.31.25.131",
+          "ProductCodes": [],
+          "PublicDnsName": "",
+          "State": {
+            "Code": 80,
+            "Name": "stopped"
+          },
+          "StateTransitionReason": "User initiated",
+          "SubnetId": "subnet-b82ec1d1",
+          "VpcId": "vpc-2c658b43",
+          "Architecture": "x86_64",
+          "BlockDeviceMappings": [
+            {
+              "DeviceName": "/dev/sda1",
+              "Ebs": {
+                "AttachTime": "2021-05-25T14:59:46+00:00",
+                "DeleteOnTermination": true,
+                "Status": "attached",
+                "VolumeId": "vol-003f3479e06834956"
+              }
+            }
+          ],
+          "ClientToken": "94213bfc-af20-437b-932a-e919a30cd9fa",
+          "EbsOptimized": false,
+          "EnaSupport": true,
+          "Hypervisor": "xen",
+          "NetworkInterfaces": [
+            {
+              "Attachment": {
+                "AttachTime": "2021-05-25T14:59:46+00:00",
+                "AttachmentId": "eni-attach-04b94cac83c106eab",
+                "DeleteOnTermination": true,
+                "DeviceIndex": 0,
+                "Status": "attached",
+                "NetworkCardIndex": 0
+              },
+              "Description": "",
+              "Groups": [
+                {
+                  "GroupName": "jetbrains-projector",
+                  "GroupId": "sg-0eec46ebc5e138c77"
+                }
+              ],
+              "Ipv6Addresses": [],
+              "MacAddress": "06:3c:ed:ac:68:d8",
+              "NetworkInterfaceId": "eni-057525c907fee89be",
+              "OwnerId": "593382876411",
+              "PrivateDnsName": "ip-172-31-25-131.eu-north-1.compute.internal",
+              "PrivateIpAddress": "172.31.25.131",
+              "PrivateIpAddresses": [
+                {
+                  "Primary": true,
+                  "PrivateDnsName": "ip-172-31-25-131.eu-north-1.compute.internal",
+                  "PrivateIpAddress": "172.31.25.131"
+                }
+              ],
+              "SourceDestCheck": true,
+              "Status": "in-use",
+              "SubnetId": "subnet-b82ec1d1",
+              "VpcId": "vpc-2c658b43",
+              "InterfaceType": "interface"
+            }
+          ],
+          "RootDeviceName": "/dev/sda1",
+          "RootDeviceType": "ebs",
+          "SecurityGroups": [
+            {
+              "GroupName": "jetbrains-projector",
+              "GroupId": "sg-0eec46ebc5e138c77"
+            }
+          ],
+          "SourceDestCheck": true,
+          "StateReason": {
+            "Code": "Client.InstanceInitiatedShutdown",
+            "Message": "Client.InstanceInitiatedShutdown: Instance initiated shutdown"
+          },
+          "Tags": [
+            {
+              "Key": "Name",
+              "Value": "26c62aa1-clion.codekata.proagile.link"
+            },
+            {
+              "Key": "SammanCoach",
+              "Value": "ebjaolo"
+            }
+          ],
+          "VirtualizationType": "hvm",
+          "CpuOptions": {
+            "CoreCount": 1,
+            "ThreadsPerCore": 2
+          },
+          "CapacityReservationSpecification": {
+            "CapacityReservationPreference": "open"
+          },
+          "HibernationOptions": {
+            "Configured": false
+          },
+          "MetadataOptions": {
+            "State": "applied",
+            "HttpTokens": "optional",
+            "HttpPutResponseHopLimit": 1,
+            "HttpEndpoint": "enabled"
+          },
+          "EnclaveOptions": {
+            "Enabled": false
+          }
+        }
+      ],
+      "OwnerId": "593382876411",
+      "ReservationId": "r-0fe2e160678b43250"
+    },
+    {
+      "Groups": [],
+      "Instances": [
+        {
+          "AmiLaunchIndex": 0,
+          "ImageId": "ami-0ed17ff3d78e74799",
+          "InstanceId": "i-094beea6fcf6d40d0",
+          "InstanceType": "t3.large",
+          "KeyName": "projector",
+          "LaunchTime": "2021-08-18T14:25:43+00:00",
+          "Monitoring": {
+            "State": "disabled"
+          },
+          "Placement": {
+            "AvailabilityZone": "eu-north-1a",
+            "GroupName": "",
+            "Tenancy": "default"
+          },
+          "PrivateDnsName": "ip-172-31-29-30.eu-north-1.compute.internal",
+          "PrivateIpAddress": "172.31.29.30",
+          "ProductCodes": [],
+          "PublicDnsName": "",
+          "State": {
+            "Code": 80,
+            "Name": "stopped"
+          },
+          "StateTransitionReason": "User initiated (2021-08-18 14:28:33 GMT)",
+          "SubnetId": "subnet-b82ec1d1",
+          "VpcId": "vpc-2c658b43",
+          "Architecture": "x86_64",
+          "BlockDeviceMappings": [
+            {
+              "DeviceName": "/dev/sda1",
+              "Ebs": {
+                "AttachTime": "2021-07-05T14:53:33+00:00",
+                "DeleteOnTermination": true,
+                "Status": "attached",
+                "VolumeId": "vol-02821e59ad707a024"
+              }
+            }
+          ],
+          "ClientToken": "1d2a0649-8e16-442a-8290-e170f5128cd7",
+          "EbsOptimized": false,
+          "EnaSupport": true,
+          "Hypervisor": "xen",
+          "NetworkInterfaces": [
+            {
+              "Attachment": {
+                "AttachTime": "2021-07-05T14:53:32+00:00",
+                "AttachmentId": "eni-attach-0961f6d49869b3bb9",
+                "DeleteOnTermination": true,
+                "DeviceIndex": 0,
+                "Status": "attached",
+                "NetworkCardIndex": 0
+              },
+              "Description": "",
+              "Groups": [
+                {
+                  "GroupName": "jetbrains-projector",
+                  "GroupId": "sg-0eec46ebc5e138c77"
+                }
+              ],
+              "Ipv6Addresses": [],
+              "MacAddress": "06:cb:d7:0a:52:a2",
+              "NetworkInterfaceId": "eni-05e194ec9e1bae49a",
+              "OwnerId": "593382876411",
+              "PrivateDnsName": "ip-172-31-29-30.eu-north-1.compute.internal",
+              "PrivateIpAddress": "172.31.29.30",
+              "PrivateIpAddresses": [
+                {
+                  "Primary": true,
+                  "PrivateDnsName": "ip-172-31-29-30.eu-north-1.compute.internal",
+                  "PrivateIpAddress": "172.31.29.30"
+                }
+              ],
+              "SourceDestCheck": true,
+              "Status": "in-use",
+              "SubnetId": "subnet-b82ec1d1",
+              "VpcId": "vpc-2c658b43",
+              "InterfaceType": "interface"
+            }
+          ],
+          "RootDeviceName": "/dev/sda1",
+          "RootDeviceType": "ebs",
+          "SecurityGroups": [
+            {
+              "GroupName": "jetbrains-projector",
+              "GroupId": "sg-0eec46ebc5e138c77"
+            }
+          ],
+          "SourceDestCheck": true,
+          "StateReason": {
+            "Code": "Client.UserInitiatedShutdown",
+            "Message": "Client.UserInitiatedShutdown: User initiated shutdown"
+          },
+          "Tags": [
+            {
+              "Key": "Name",
+              "Value": "41e8a61e-webstorm.codekata.proagile.link"
+            },
+            {
+              "Key": "SammanCoach",
+              "Value": "emily"
+            }
+          ],
+          "VirtualizationType": "hvm",
+          "CpuOptions": {
+            "CoreCount": 1,
+            "ThreadsPerCore": 2
+          },
+          "CapacityReservationSpecification": {
+            "CapacityReservationPreference": "open"
+          },
+          "HibernationOptions": {
+            "Configured": false
+          },
+          "MetadataOptions": {
+            "State": "applied",
+            "HttpTokens": "optional",
+            "HttpPutResponseHopLimit": 1,
+            "HttpEndpoint": "enabled"
+          },
+          "EnclaveOptions": {
+            "Enabled": false
+          }
+        }
+      ],
+      "OwnerId": "593382876411",
+      "ReservationId": "r-046f523a959b9df5d"
+    },
+    {
+      "Groups": [],
+      "Instances": [
+        {
+          "AmiLaunchIndex": 0,
+          "ImageId": "ami-0ed17ff3d78e74799",
+          "InstanceId": "i-0f2a690ed4b86f93a",
+          "InstanceType": "t3.large",
+          "KeyName": "projector",
+          "LaunchTime": "2021-09-06T05:45:20+00:00",
+          "Monitoring": {
+            "State": "disabled"
+          },
+          "Placement": {
+            "AvailabilityZone": "eu-north-1a",
+            "GroupName": "",
+            "Tenancy": "default"
+          },
+          "PrivateDnsName": "ip-172-31-19-136.eu-north-1.compute.internal",
+          "PrivateIpAddress": "172.31.19.136",
+          "ProductCodes": [],
+          "PublicDnsName": "",
+          "State": {
+            "Code": 80,
+            "Name": "stopped"
+          },
+          "StateTransitionReason": "User initiated (2021-09-07 14:54:26 GMT)",
+          "SubnetId": "subnet-b82ec1d1",
+          "VpcId": "vpc-2c658b43",
+          "Architecture": "x86_64",
+          "BlockDeviceMappings": [
+            {
+              "DeviceName": "/dev/sda1",
+              "Ebs": {
+                "AttachTime": "2021-08-18T14:28:27+00:00",
+                "DeleteOnTermination": true,
+                "Status": "attached",
+                "VolumeId": "vol-07a823249b5d0bafb"
+              }
+            }
+          ],
+          "ClientToken": "a98780d1-64a6-4d01-ba97-ad52bcaa9254",
+          "EbsOptimized": false,
+          "EnaSupport": true,
+          "Hypervisor": "xen",
+          "NetworkInterfaces": [
+            {
+              "Attachment": {
+                "AttachTime": "2021-08-18T14:28:26+00:00",
+                "AttachmentId": "eni-attach-017dd653586d0e5d1",
+                "DeleteOnTermination": true,
+                "DeviceIndex": 0,
+                "Status": "attached",
+                "NetworkCardIndex": 0
+              },
+              "Description": "",
+              "Groups": [
+                {
+                  "GroupName": "jetbrains-projector",
+                  "GroupId": "sg-0eec46ebc5e138c77"
+                }
+              ],
+              "Ipv6Addresses": [],
+              "MacAddress": "06:25:9e:f9:1c:1a",
+              "NetworkInterfaceId": "eni-00c3d2c8e21cf75d2",
+              "OwnerId": "593382876411",
+              "PrivateDnsName": "ip-172-31-19-136.eu-north-1.compute.internal",
+              "PrivateIpAddress": "172.31.19.136",
+              "PrivateIpAddresses": [
+                {
+                  "Primary": true,
+                  "PrivateDnsName": "ip-172-31-19-136.eu-north-1.compute.internal",
+                  "PrivateIpAddress": "172.31.19.136"
+                }
+              ],
+              "SourceDestCheck": true,
+              "Status": "in-use",
+              "SubnetId": "subnet-b82ec1d1",
+              "VpcId": "vpc-2c658b43",
+              "InterfaceType": "interface"
+            }
+          ],
+          "RootDeviceName": "/dev/sda1",
+          "RootDeviceType": "ebs",
+          "SecurityGroups": [
+            {
+              "GroupName": "jetbrains-projector",
+              "GroupId": "sg-0eec46ebc5e138c77"
+            }
+          ],
+          "SourceDestCheck": true,
+          "StateReason": {
+            "Code": "Client.UserInitiatedShutdown",
+            "Message": "Client.UserInitiatedShutdown: User initiated shutdown"
+          },
+          "Tags": [
+            {
+              "Key": "Name",
+              "Value": "b5fdbf2c-webstorm.codekata.proagile.link"
+            },
+            {
+              "Key": "SammanCoach",
+              "Value": "emily"
+            }
+          ],
+          "VirtualizationType": "hvm",
+          "CpuOptions": {
+            "CoreCount": 1,
+            "ThreadsPerCore": 2
+          },
+          "CapacityReservationSpecification": {
+            "CapacityReservationPreference": "open"
+          },
+          "HibernationOptions": {
+            "Configured": false
+          },
+          "MetadataOptions": {
+            "State": "applied",
+            "HttpTokens": "optional",
+            "HttpPutResponseHopLimit": 1,
+            "HttpEndpoint": "enabled"
+          },
+          "EnclaveOptions": {
+            "Enabled": false
+          }
+        }
+      ],
+      "OwnerId": "593382876411",
+      "ReservationId": "r-0c27ce4440dab3486"
+    },
+    {
+      "Groups": [],
+      "Instances": [
+        {
+          "AmiLaunchIndex": 0,
+          "ImageId": "ami-0ed17ff3d78e74799",
+          "InstanceId": "i-02f0d1fd3b27b014d",
+          "InstanceType": "t3.large",
+          "KeyName": "projector",
+          "LaunchTime": "2021-09-06T05:45:20+00:00",
+          "Monitoring": {
+            "State": "disabled"
+          },
+          "Placement": {
+            "AvailabilityZone": "eu-north-1a",
+            "GroupName": "",
+            "Tenancy": "default"
+          },
+          "PrivateDnsName": "ip-172-31-19-39.eu-north-1.compute.internal",
+          "PrivateIpAddress": "172.31.19.39",
+          "ProductCodes": [],
+          "PublicDnsName": "",
+          "State": {
+            "Code": 80,
+            "Name": "stopped"
+          },
+          "StateTransitionReason": "User initiated (2021-09-07 14:54:26 GMT)",
+          "SubnetId": "subnet-b82ec1d1",
+          "VpcId": "vpc-2c658b43",
+          "Architecture": "x86_64",
+          "BlockDeviceMappings": [
+            {
+              "DeviceName": "/dev/sda1",
+              "Ebs": {
+                "AttachTime": "2021-08-19T11:34:48+00:00",
+                "DeleteOnTermination": true,
+                "Status": "attached",
+                "VolumeId": "vol-0a93c44897aa34c29"
+              }
+            }
+          ],
+          "ClientToken": "9d769804-392a-4079-a474-7ed2bb00e98e",
+          "EbsOptimized": false,
+          "EnaSupport": true,
+          "Hypervisor": "xen",
+          "NetworkInterfaces": [
+            {
+              "Attachment": {
+                "AttachTime": "2021-08-19T11:34:45+00:00",
+                "AttachmentId": "eni-attach-03bdfe65f06aa8f7c",
+                "DeleteOnTermination": true,
+                "DeviceIndex": 0,
+                "Status": "attached",
+                "NetworkCardIndex": 0
+              },
+              "Description": "",
+              "Groups": [
+                {
+                  "GroupName": "jetbrains-projector",
+                  "GroupId": "sg-0eec46ebc5e138c77"
+                }
+              ],
+              "Ipv6Addresses": [],
+              "MacAddress": "06:a2:14:f4:aa:66",
+              "NetworkInterfaceId": "eni-0d08678da56d19ddf",
+              "OwnerId": "593382876411",
+              "PrivateDnsName": "ip-172-31-19-39.eu-north-1.compute.internal",
+              "PrivateIpAddress": "172.31.19.39",
+              "PrivateIpAddresses": [
+                {
+                  "Primary": true,
+                  "PrivateDnsName": "ip-172-31-19-39.eu-north-1.compute.internal",
+                  "PrivateIpAddress": "172.31.19.39"
+                }
+              ],
+              "SourceDestCheck": true,
+              "Status": "in-use",
+              "SubnetId": "subnet-b82ec1d1",
+              "VpcId": "vpc-2c658b43",
+              "InterfaceType": "interface"
+            }
+          ],
+          "RootDeviceName": "/dev/sda1",
+          "RootDeviceType": "ebs",
+          "SecurityGroups": [
+            {
+              "GroupName": "jetbrains-projector",
+              "GroupId": "sg-0eec46ebc5e138c77"
+            }
+          ],
+          "SourceDestCheck": true,
+          "StateReason": {
+            "Code": "Client.UserInitiatedShutdown",
+            "Message": "Client.UserInitiatedShutdown: User initiated shutdown"
+          },
+          "Tags": [
+            {
+              "Key": "Name",
+              "Value": "f8a3f1e4-webstorm.codekata.proagile.link"
+            },
+            {
+              "Key": "SammanCoach",
+              "Value": "emily"
+            }
+          ],
+          "VirtualizationType": "hvm",
+          "CpuOptions": {
+            "CoreCount": 1,
+            "ThreadsPerCore": 2
+          },
+          "CapacityReservationSpecification": {
+            "CapacityReservationPreference": "open"
+          },
+          "HibernationOptions": {
+            "Configured": false
+          },
+          "MetadataOptions": {
+            "State": "applied",
+            "HttpTokens": "optional",
+            "HttpPutResponseHopLimit": 1,
+            "HttpEndpoint": "enabled"
+          },
+          "EnclaveOptions": {
+            "Enabled": false
+          }
+        }
+      ],
+      "OwnerId": "593382876411",
+      "ReservationId": "r-02012e7deb7d9ae4f"
+    },
+    {
+      "Groups": [],
+      "Instances": [
+        {
+          "AmiLaunchIndex": 0,
+          "ImageId": "ami-0ed17ff3d78e74799",
+          "InstanceId": "i-00a9330be908a8e50",
+          "InstanceType": "t3.large",
+          "KeyName": "projector",
+          "LaunchTime": "2021-09-06T05:45:20+00:00",
+          "Monitoring": {
+            "State": "disabled"
+          },
+          "Placement": {
+            "AvailabilityZone": "eu-north-1a",
+            "GroupName": "",
+            "Tenancy": "default"
+          },
+          "PrivateDnsName": "ip-172-31-22-234.eu-north-1.compute.internal",
+          "PrivateIpAddress": "172.31.22.234",
+          "ProductCodes": [],
+          "PublicDnsName": "",
+          "State": {
+            "Code": 80,
+            "Name": "stopped"
+          },
+          "StateTransitionReason": "User initiated (2021-09-07 14:54:26 GMT)",
+          "SubnetId": "subnet-b82ec1d1",
+          "VpcId": "vpc-2c658b43",
+          "Architecture": "x86_64",
+          "BlockDeviceMappings": [
+            {
+              "DeviceName": "/dev/sda1",
+              "Ebs": {
+                "AttachTime": "2021-08-19T11:34:52+00:00",
+                "DeleteOnTermination": true,
+                "Status": "attached",
+                "VolumeId": "vol-0ac50c31e9e4c3fa4"
+              }
+            }
+          ],
+          "ClientToken": "c2664d60-6c1e-4043-8d1f-5b53c74549c9",
+          "EbsOptimized": false,
+          "EnaSupport": true,
+          "Hypervisor": "xen",
+          "NetworkInterfaces": [
+            {
+              "Attachment": {
+                "AttachTime": "2021-08-19T11:34:51+00:00",
+                "AttachmentId": "eni-attach-0bce3a5b968f3fe4e",
+                "DeleteOnTermination": true,
+                "DeviceIndex": 0,
+                "Status": "attached",
+                "NetworkCardIndex": 0
+              },
+              "Description": "",
+              "Groups": [
+                {
+                  "GroupName": "jetbrains-projector",
+                  "GroupId": "sg-0eec46ebc5e138c77"
+                }
+              ],
+              "Ipv6Addresses": [],
+              "MacAddress": "06:96:fb:b9:7c:2c",
+              "NetworkInterfaceId": "eni-0d5aad51dcd5fd755",
+              "OwnerId": "593382876411",
+              "PrivateDnsName": "ip-172-31-22-234.eu-north-1.compute.internal",
+              "PrivateIpAddress": "172.31.22.234",
+              "PrivateIpAddresses": [
+                {
+                  "Primary": true,
+                  "PrivateDnsName": "ip-172-31-22-234.eu-north-1.compute.internal",
+                  "PrivateIpAddress": "172.31.22.234"
+                }
+              ],
+              "SourceDestCheck": true,
+              "Status": "in-use",
+              "SubnetId": "subnet-b82ec1d1",
+              "VpcId": "vpc-2c658b43",
+              "InterfaceType": "interface"
+            }
+          ],
+          "RootDeviceName": "/dev/sda1",
+          "RootDeviceType": "ebs",
+          "SecurityGroups": [
+            {
+              "GroupName": "jetbrains-projector",
+              "GroupId": "sg-0eec46ebc5e138c77"
+            }
+          ],
+          "SourceDestCheck": true,
+          "StateReason": {
+            "Code": "Client.UserInitiatedShutdown",
+            "Message": "Client.UserInitiatedShutdown: User initiated shutdown"
+          },
+          "Tags": [
+            {
+              "Key": "Name",
+              "Value": "8d64b7cb-webstorm.codekata.proagile.link"
+            },
+            {
+              "Key": "SammanCoach",
+              "Value": "emily"
+            }
+          ],
+          "VirtualizationType": "hvm",
+          "CpuOptions": {
+            "CoreCount": 1,
+            "ThreadsPerCore": 2
+          },
+          "CapacityReservationSpecification": {
+            "CapacityReservationPreference": "open"
+          },
+          "HibernationOptions": {
+            "Configured": false
+          },
+          "MetadataOptions": {
+            "State": "applied",
+            "HttpTokens": "optional",
+            "HttpPutResponseHopLimit": 1,
+            "HttpEndpoint": "enabled"
+          },
+          "EnclaveOptions": {
+            "Enabled": false
+          }
+        }
+      ],
+      "OwnerId": "593382876411",
+      "ReservationId": "r-0b3077de48cf5d548"
+    },
+    {
+      "Groups": [],
+      "Instances": [
+        {
+          "AmiLaunchIndex": 0,
+          "ImageId": "ami-0ed17ff3d78e74799",
+          "InstanceId": "i-068e5b382b8df03bd",
+          "InstanceType": "t3.large",
+          "KeyName": "projector",
+          "LaunchTime": "2021-08-23T12:08:45+00:00",
+          "Monitoring": {
+            "State": "disabled"
+          },
+          "Placement": {
+            "AvailabilityZone": "eu-north-1a",
+            "GroupName": "",
+            "Tenancy": "default"
+          },
+          "PrivateDnsName": "ip-172-31-28-211.eu-north-1.compute.internal",
+          "PrivateIpAddress": "172.31.28.211",
+          "ProductCodes": [],
+          "PublicDnsName": "",
+          "State": {
+            "Code": 80,
+            "Name": "stopped"
+          },
+          "StateTransitionReason": "User initiated (2021-08-23 15:19:14 GMT)",
+          "SubnetId": "subnet-b82ec1d1",
+          "VpcId": "vpc-2c658b43",
+          "Architecture": "x86_64",
+          "BlockDeviceMappings": [
+            {
+              "DeviceName": "/dev/sda1",
+              "Ebs": {
+                "AttachTime": "2021-08-23T12:08:46+00:00",
+                "DeleteOnTermination": true,
+                "Status": "attached",
+                "VolumeId": "vol-03d536e45c3d290e4"
+              }
+            }
+          ],
+          "ClientToken": "dd21bc64-584e-40df-bab6-fcfe7cfc4c31",
+          "EbsOptimized": false,
+          "EnaSupport": true,
+          "Hypervisor": "xen",
+          "NetworkInterfaces": [
+            {
+              "Attachment": {
+                "AttachTime": "2021-08-23T12:08:45+00:00",
+                "AttachmentId": "eni-attach-0a1c02e4a8083ec66",
+                "DeleteOnTermination": true,
+                "DeviceIndex": 0,
+                "Status": "attached",
+                "NetworkCardIndex": 0
+              },
+              "Description": "",
+              "Groups": [
+                {
+                  "GroupName": "jetbrains-projector",
+                  "GroupId": "sg-0eec46ebc5e138c77"
+                }
+              ],
+              "Ipv6Addresses": [],
+              "MacAddress": "06:f4:f7:d1:5c:a2",
+              "NetworkInterfaceId": "eni-03e2eeacd1faa5792",
+              "OwnerId": "593382876411",
+              "PrivateDnsName": "ip-172-31-28-211.eu-north-1.compute.internal",
+              "PrivateIpAddress": "172.31.28.211",
+              "PrivateIpAddresses": [
+                {
+                  "Primary": true,
+                  "PrivateDnsName": "ip-172-31-28-211.eu-north-1.compute.internal",
+                  "PrivateIpAddress": "172.31.28.211"
+                }
+              ],
+              "SourceDestCheck": true,
+              "Status": "in-use",
+              "SubnetId": "subnet-b82ec1d1",
+              "VpcId": "vpc-2c658b43",
+              "InterfaceType": "interface"
+            }
+          ],
+          "RootDeviceName": "/dev/sda1",
+          "RootDeviceType": "ebs",
+          "SecurityGroups": [
+            {
+              "GroupName": "jetbrains-projector",
+              "GroupId": "sg-0eec46ebc5e138c77"
+            }
+          ],
+          "SourceDestCheck": true,
+          "StateReason": {
+            "Code": "Client.UserInitiatedShutdown",
+            "Message": "Client.UserInitiatedShutdown: User initiated shutdown"
+          },
+          "Tags": [
+            {
+              "Key": "Name",
+              "Value": "abc5b7bc-clion.codekata.proagile.link"
+            },
+            {
+              "Key": "SammanCoach",
+              "Value": "ebjaolo"
+            }
+          ],
+          "VirtualizationType": "hvm",
+          "CpuOptions": {
+            "CoreCount": 1,
+            "ThreadsPerCore": 2
+          },
+          "CapacityReservationSpecification": {
+            "CapacityReservationPreference": "open"
+          },
+          "HibernationOptions": {
+            "Configured": false
+          },
+          "MetadataOptions": {
+            "State": "applied",
+            "HttpTokens": "optional",
+            "HttpPutResponseHopLimit": 1,
+            "HttpEndpoint": "enabled"
+          },
+          "EnclaveOptions": {
+            "Enabled": false
+          }
+        }
+      ],
+      "OwnerId": "593382876411",
+      "ReservationId": "r-0e4bb08f1cf4d2975"
+    },
+    {
+      "Groups": [],
+      "Instances": [
+        {
+          "AmiLaunchIndex": 0,
+          "ImageId": "ami-0ed17ff3d78e74799",
+          "InstanceId": "i-0f473679ecee07a3f",
+          "InstanceType": "t3.large",
+          "KeyName": "projector",
+          "LaunchTime": "2021-08-23T12:07:32+00:00",
+          "Monitoring": {
+            "State": "disabled"
+          },
+          "Placement": {
+            "AvailabilityZone": "eu-north-1a",
+            "GroupName": "",
+            "Tenancy": "default"
+          },
+          "PrivateDnsName": "ip-172-31-17-81.eu-north-1.compute.internal",
+          "PrivateIpAddress": "172.31.17.81",
+          "ProductCodes": [],
+          "PublicDnsName": "",
+          "State": {
+            "Code": 80,
+            "Name": "stopped"
+          },
+          "StateTransitionReason": "User initiated (2021-08-23 15:19:14 GMT)",
+          "SubnetId": "subnet-b82ec1d1",
+          "VpcId": "vpc-2c658b43",
+          "Architecture": "x86_64",
+          "BlockDeviceMappings": [
+            {
+              "DeviceName": "/dev/sda1",
+              "Ebs": {
+                "AttachTime": "2021-08-23T12:07:33+00:00",
+                "DeleteOnTermination": true,
+                "Status": "attached",
+                "VolumeId": "vol-09c220138afedecc9"
+              }
+            }
+          ],
+          "ClientToken": "2f2c6eb6-cea4-45b9-a8fd-a7017c108c22",
+          "EbsOptimized": false,
+          "EnaSupport": true,
+          "Hypervisor": "xen",
+          "NetworkInterfaces": [
+            {
+              "Attachment": {
+                "AttachTime": "2021-08-23T12:07:32+00:00",
+                "AttachmentId": "eni-attach-06be45ec910484613",
+                "DeleteOnTermination": true,
+                "DeviceIndex": 0,
+                "Status": "attached",
+                "NetworkCardIndex": 0
+              },
+              "Description": "",
+              "Groups": [
+                {
+                  "GroupName": "jetbrains-projector",
+                  "GroupId": "sg-0eec46ebc5e138c77"
+                }
+              ],
+              "Ipv6Addresses": [],
+              "MacAddress": "06:6b:2b:6f:76:3e",
+              "NetworkInterfaceId": "eni-04442d462318d7555",
+              "OwnerId": "593382876411",
+              "PrivateDnsName": "ip-172-31-17-81.eu-north-1.compute.internal",
+              "PrivateIpAddress": "172.31.17.81",
+              "PrivateIpAddresses": [
+                {
+                  "Primary": true,
+                  "PrivateDnsName": "ip-172-31-17-81.eu-north-1.compute.internal",
+                  "PrivateIpAddress": "172.31.17.81"
+                }
+              ],
+              "SourceDestCheck": true,
+              "Status": "in-use",
+              "SubnetId": "subnet-b82ec1d1",
+              "VpcId": "vpc-2c658b43",
+              "InterfaceType": "interface"
+            }
+          ],
+          "RootDeviceName": "/dev/sda1",
+          "RootDeviceType": "ebs",
+          "SecurityGroups": [
+            {
+              "GroupName": "jetbrains-projector",
+              "GroupId": "sg-0eec46ebc5e138c77"
+            }
+          ],
+          "SourceDestCheck": true,
+          "StateReason": {
+            "Code": "Client.UserInitiatedShutdown",
+            "Message": "Client.UserInitiatedShutdown: User initiated shutdown"
+          },
+          "Tags": [
+            {
+              "Key": "Name",
+              "Value": "e569d3b1-idea.codekata.proagile.link"
+            },
+            {
+              "Key": "SammanCoach",
+              "Value": "ebjaolo"
+            }
+          ],
+          "VirtualizationType": "hvm",
+          "CpuOptions": {
+            "CoreCount": 1,
+            "ThreadsPerCore": 2
+          },
+          "CapacityReservationSpecification": {
+            "CapacityReservationPreference": "open"
+          },
+          "HibernationOptions": {
+            "Configured": false
+          },
+          "MetadataOptions": {
+            "State": "applied",
+            "HttpTokens": "optional",
+            "HttpPutResponseHopLimit": 1,
+            "HttpEndpoint": "enabled"
+          },
+          "EnclaveOptions": {
+            "Enabled": false
+          }
+        }
+      ],
+      "OwnerId": "593382876411",
+      "ReservationId": "r-093516878419ccc5c"
+    },
+    {
+      "Groups": [],
+      "Instances": [
+        {
+          "AmiLaunchIndex": 0,
+          "ImageId": "ami-0ed17ff3d78e74799",
+          "InstanceId": "i-0a745048302a00d86",
+          "InstanceType": "t3.large",
+          "KeyName": "projector",
+          "LaunchTime": "2021-08-23T13:07:49+00:00",
+          "Monitoring": {
+            "State": "disabled"
+          },
+          "Placement": {
+            "AvailabilityZone": "eu-north-1a",
+            "GroupName": "",
+            "Tenancy": "default"
+          },
+          "PrivateDnsName": "ip-172-31-19-37.eu-north-1.compute.internal",
+          "PrivateIpAddress": "172.31.19.37",
+          "ProductCodes": [],
+          "PublicDnsName": "",
+          "State": {
+            "Code": 80,
+            "Name": "stopped"
+          },
+          "StateTransitionReason": "User initiated (2021-08-26 11:22:52 GMT)",
+          "SubnetId": "subnet-b82ec1d1",
+          "VpcId": "vpc-2c658b43",
+          "Architecture": "x86_64",
+          "BlockDeviceMappings": [
+            {
+              "DeviceName": "/dev/sda1",
+              "Ebs": {
+                "AttachTime": "2021-08-23T13:07:50+00:00",
+                "DeleteOnTermination": true,
+                "Status": "attached",
+                "VolumeId": "vol-005b168d2a7df27d7"
+              }
+            }
+          ],
+          "ClientToken": "ce6167ac-63c3-4ad1-858b-054be208ee13",
+          "EbsOptimized": false,
+          "EnaSupport": true,
+          "Hypervisor": "xen",
+          "NetworkInterfaces": [
+            {
+              "Attachment": {
+                "AttachTime": "2021-08-23T13:07:49+00:00",
+                "AttachmentId": "eni-attach-0a0f3a9e72178a744",
+                "DeleteOnTermination": true,
+                "DeviceIndex": 0,
+                "Status": "attached",
+                "NetworkCardIndex": 0
+              },
+              "Description": "",
+              "Groups": [
+                {
+                  "GroupName": "jetbrains-projector",
+                  "GroupId": "sg-0eec46ebc5e138c77"
+                }
+              ],
+              "Ipv6Addresses": [],
+              "MacAddress": "06:6a:3d:d7:97:1a",
+              "NetworkInterfaceId": "eni-0afe70be3a6891f53",
+              "OwnerId": "593382876411",
+              "PrivateDnsName": "ip-172-31-19-37.eu-north-1.compute.internal",
+              "PrivateIpAddress": "172.31.19.37",
+              "PrivateIpAddresses": [
+                {
+                  "Primary": true,
+                  "PrivateDnsName": "ip-172-31-19-37.eu-north-1.compute.internal",
+                  "PrivateIpAddress": "172.31.19.37"
+                }
+              ],
+              "SourceDestCheck": true,
+              "Status": "in-use",
+              "SubnetId": "subnet-b82ec1d1",
+              "VpcId": "vpc-2c658b43",
+              "InterfaceType": "interface"
+            }
+          ],
+          "RootDeviceName": "/dev/sda1",
+          "RootDeviceType": "ebs",
+          "SecurityGroups": [
+            {
+              "GroupName": "jetbrains-projector",
+              "GroupId": "sg-0eec46ebc5e138c77"
+            }
+          ],
+          "SourceDestCheck": true,
+          "StateReason": {
+            "Code": "Client.UserInitiatedShutdown",
+            "Message": "Client.UserInitiatedShutdown: User initiated shutdown"
+          },
+          "Tags": [
+            {
+              "Key": "SammanCoach",
+              "Value": "emily"
+            },
+            {
+              "Key": "Name",
+              "Value": "dbae4de0-idea.codekata.proagile.link"
+            }
+          ],
+          "VirtualizationType": "hvm",
+          "CpuOptions": {
+            "CoreCount": 1,
+            "ThreadsPerCore": 2
+          },
+          "CapacityReservationSpecification": {
+            "CapacityReservationPreference": "open"
+          },
+          "HibernationOptions": {
+            "Configured": false
+          },
+          "MetadataOptions": {
+            "State": "applied",
+            "HttpTokens": "optional",
+            "HttpPutResponseHopLimit": 1,
+            "HttpEndpoint": "enabled"
+          },
+          "EnclaveOptions": {
+            "Enabled": false
+          }
+        }
+      ],
+      "OwnerId": "593382876411",
+      "ReservationId": "r-08ddc6dd185f0fa51"
+    },
+    {
+      "Groups": [],
+      "Instances": [
+        {
+          "AmiLaunchIndex": 0,
+          "ImageId": "ami-0ed17ff3d78e74799",
+          "InstanceId": "i-02f1d6f5c32e819eb",
+          "InstanceType": "t3.large",
+          "KeyName": "projector",
+          "LaunchTime": "2021-08-23T13:24:03+00:00",
+          "Monitoring": {
+            "State": "disabled"
+          },
+          "Placement": {
+            "AvailabilityZone": "eu-north-1a",
+            "GroupName": "",
+            "Tenancy": "default"
+          },
+          "PrivateDnsName": "ip-172-31-28-212.eu-north-1.compute.internal",
+          "PrivateIpAddress": "172.31.28.212",
+          "ProductCodes": [],
+          "PublicDnsName": "",
+          "State": {
+            "Code": 80,
+            "Name": "stopped"
+          },
+          "StateTransitionReason": "User initiated (2021-08-23 15:19:14 GMT)",
+          "SubnetId": "subnet-b82ec1d1",
+          "VpcId": "vpc-2c658b43",
+          "Architecture": "x86_64",
+          "BlockDeviceMappings": [
+            {
+              "DeviceName": "/dev/sda1",
+              "Ebs": {
+                "AttachTime": "2021-08-23T13:24:04+00:00",
+                "DeleteOnTermination": true,
+                "Status": "attached",
+                "VolumeId": "vol-09701fdf21a209599"
+              }
+            }
+          ],
+          "ClientToken": "90a1d08c-b609-477c-a0f6-23ad1c5186d9",
+          "EbsOptimized": false,
+          "EnaSupport": true,
+          "Hypervisor": "xen",
+          "NetworkInterfaces": [
+            {
+              "Attachment": {
+                "AttachTime": "2021-08-23T13:24:03+00:00",
+                "AttachmentId": "eni-attach-0465807d853b0013d",
+                "DeleteOnTermination": true,
+                "DeviceIndex": 0,
+                "Status": "attached",
+                "NetworkCardIndex": 0
+              },
+              "Description": "",
+              "Groups": [
+                {
+                  "GroupName": "jetbrains-projector",
+                  "GroupId": "sg-0eec46ebc5e138c77"
+                }
+              ],
+              "Ipv6Addresses": [],
+              "MacAddress": "06:7a:3e:5e:7c:34",
+              "NetworkInterfaceId": "eni-0d101e202e675e40d",
+              "OwnerId": "593382876411",
+              "PrivateDnsName": "ip-172-31-28-212.eu-north-1.compute.internal",
+              "PrivateIpAddress": "172.31.28.212",
+              "PrivateIpAddresses": [
+                {
+                  "Primary": true,
+                  "PrivateDnsName": "ip-172-31-28-212.eu-north-1.compute.internal",
+                  "PrivateIpAddress": "172.31.28.212"
+                }
+              ],
+              "SourceDestCheck": true,
+              "Status": "in-use",
+              "SubnetId": "subnet-b82ec1d1",
+              "VpcId": "vpc-2c658b43",
+              "InterfaceType": "interface"
+            }
+          ],
+          "RootDeviceName": "/dev/sda1",
+          "RootDeviceType": "ebs",
+          "SecurityGroups": [
+            {
+              "GroupName": "jetbrains-projector",
+              "GroupId": "sg-0eec46ebc5e138c77"
+            }
+          ],
+          "SourceDestCheck": true,
+          "StateReason": {
+            "Code": "Client.UserInitiatedShutdown",
+            "Message": "Client.UserInitiatedShutdown: User initiated shutdown"
+          },
+          "Tags": [
+            {
+              "Key": "SammanCoach",
+              "Value": "ebjaolo"
+            },
+            {
+              "Key": "Name",
+              "Value": "fad37321-idea.codekata.proagile.link"
+            }
+          ],
+          "VirtualizationType": "hvm",
+          "CpuOptions": {
+            "CoreCount": 1,
+            "ThreadsPerCore": 2
+          },
+          "CapacityReservationSpecification": {
+            "CapacityReservationPreference": "open"
+          },
+          "HibernationOptions": {
+            "Configured": false
+          },
+          "MetadataOptions": {
+            "State": "applied",
+            "HttpTokens": "optional",
+            "HttpPutResponseHopLimit": 1,
+            "HttpEndpoint": "enabled"
+          },
+          "EnclaveOptions": {
+            "Enabled": false
+          }
+        }
+      ],
+      "OwnerId": "593382876411",
+      "ReservationId": "r-0e78d42340579a3eb"
+    },
+    {
+      "Groups": [],
+      "Instances": [
+        {
+          "AmiLaunchIndex": 0,
+          "ImageId": "ami-0ed17ff3d78e74799",
+          "InstanceId": "i-0f4443bdf525abae6",
+          "InstanceType": "t3.large",
+          "KeyName": "projector",
+          "LaunchTime": "2021-08-30T08:39:09+00:00",
+          "Monitoring": {
+            "State": "disabled"
+          },
+          "Placement": {
+            "AvailabilityZone": "eu-north-1a",
+            "GroupName": "",
+            "Tenancy": "default"
+          },
+          "PrivateDnsName": "ip-172-31-24-53.eu-north-1.compute.internal",
+          "PrivateIpAddress": "172.31.24.53",
+          "ProductCodes": [],
+          "PublicDnsName": "",
+          "State": {
+            "Code": 80,
+            "Name": "stopped"
+          },
+          "StateTransitionReason": "User initiated (2021-08-30 09:28:03 GMT)",
+          "SubnetId": "subnet-b82ec1d1",
+          "VpcId": "vpc-2c658b43",
+          "Architecture": "x86_64",
+          "BlockDeviceMappings": [
+            {
+              "DeviceName": "/dev/sda1",
+              "Ebs": {
+                "AttachTime": "2021-08-24T07:58:27+00:00",
+                "DeleteOnTermination": true,
+                "Status": "attached",
+                "VolumeId": "vol-093cd9c73694a3004"
+              }
+            }
+          ],
+          "ClientToken": "8ffbf2c8-1181-44c1-b4c1-7afdab982327",
+          "EbsOptimized": false,
+          "EnaSupport": true,
+          "Hypervisor": "xen",
+          "NetworkInterfaces": [
+            {
+              "Attachment": {
+                "AttachTime": "2021-08-24T07:58:26+00:00",
+                "AttachmentId": "eni-attach-07efa03dad04e64d4",
+                "DeleteOnTermination": true,
+                "DeviceIndex": 0,
+                "Status": "attached",
+                "NetworkCardIndex": 0
+              },
+              "Description": "",
+              "Groups": [
+                {
+                  "GroupName": "jetbrains-projector",
+                  "GroupId": "sg-0eec46ebc5e138c77"
+                }
+              ],
+              "Ipv6Addresses": [],
+              "MacAddress": "06:7a:40:f2:b9:98",
+              "NetworkInterfaceId": "eni-030553150c93285bc",
+              "OwnerId": "593382876411",
+              "PrivateDnsName": "ip-172-31-24-53.eu-north-1.compute.internal",
+              "PrivateIpAddress": "172.31.24.53",
+              "PrivateIpAddresses": [
+                {
+                  "Primary": true,
+                  "PrivateDnsName": "ip-172-31-24-53.eu-north-1.compute.internal",
+                  "PrivateIpAddress": "172.31.24.53"
+                }
+              ],
+              "SourceDestCheck": true,
+              "Status": "in-use",
+              "SubnetId": "subnet-b82ec1d1",
+              "VpcId": "vpc-2c658b43",
+              "InterfaceType": "interface"
+            }
+          ],
+          "RootDeviceName": "/dev/sda1",
+          "RootDeviceType": "ebs",
+          "SecurityGroups": [
+            {
+              "GroupName": "jetbrains-projector",
+              "GroupId": "sg-0eec46ebc5e138c77"
+            }
+          ],
+          "SourceDestCheck": true,
+          "StateReason": {
+            "Code": "Client.UserInitiatedShutdown",
+            "Message": "Client.UserInitiatedShutdown: User initiated shutdown"
+          },
+          "Tags": [
+            {
+              "Key": "SammanCoach",
+              "Value": "ebjaolo"
+            },
+            {
+              "Key": "Name",
+              "Value": "989f8e56-pycharm.codekata.proagile.link"
+            }
+          ],
+          "VirtualizationType": "hvm",
+          "CpuOptions": {
+            "CoreCount": 1,
+            "ThreadsPerCore": 2
+          },
+          "CapacityReservationSpecification": {
+            "CapacityReservationPreference": "open"
+          },
+          "HibernationOptions": {
+            "Configured": false
+          },
+          "MetadataOptions": {
+            "State": "applied",
+            "HttpTokens": "optional",
+            "HttpPutResponseHopLimit": 1,
+            "HttpEndpoint": "enabled"
+          },
+          "EnclaveOptions": {
+            "Enabled": false
+          }
+        }
+      ],
+      "OwnerId": "593382876411",
+      "ReservationId": "r-0ca67c7f8efcd93d8"
+    },
+    {
+      "Groups": [],
+      "Instances": [
+        {
+          "AmiLaunchIndex": 0,
+          "ImageId": "ami-0ed17ff3d78e74799",
+          "InstanceId": "i-03d38fa95fefd7207",
+          "InstanceType": "t3.large",
+          "KeyName": "projector",
+          "LaunchTime": "2021-09-14T06:03:12+00:00",
+          "Monitoring": {
+            "State": "disabled"
+          },
+          "Placement": {
+            "AvailabilityZone": "eu-north-1a",
+            "GroupName": "",
+            "Tenancy": "default"
+          },
+          "PrivateDnsName": "ip-172-31-28-144.eu-north-1.compute.internal",
+          "PrivateIpAddress": "172.31.28.144",
+          "ProductCodes": [],
+          "PublicDnsName": "",
+          "State": {
+            "Code": 80,
+            "Name": "stopped"
+          },
+          "StateTransitionReason": "User initiated (2021-09-14 09:46:33 GMT)",
+          "SubnetId": "subnet-b82ec1d1",
+          "VpcId": "vpc-2c658b43",
+          "Architecture": "x86_64",
+          "BlockDeviceMappings": [
+            {
+              "DeviceName": "/dev/sda1",
+              "Ebs": {
+                "AttachTime": "2021-09-14T06:03:13+00:00",
+                "DeleteOnTermination": true,
+                "Status": "attached",
+                "VolumeId": "vol-0c032f12ad618ffe9"
+              }
+            }
+          ],
+          "ClientToken": "bebf738f-d969-402d-b271-2d1230427440",
+          "EbsOptimized": false,
+          "EnaSupport": true,
+          "Hypervisor": "xen",
+          "NetworkInterfaces": [
+            {
+              "Attachment": {
+                "AttachTime": "2021-09-14T06:03:12+00:00",
+                "AttachmentId": "eni-attach-0bfb620c374c0e1d9",
+                "DeleteOnTermination": true,
+                "DeviceIndex": 0,
+                "Status": "attached",
+                "NetworkCardIndex": 0
+              },
+              "Description": "",
+              "Groups": [
+                {
+                  "GroupName": "jetbrains-projector",
+                  "GroupId": "sg-0eec46ebc5e138c77"
+                }
+              ],
+              "Ipv6Addresses": [],
+              "MacAddress": "06:8a:dd:0f:89:30",
+              "NetworkInterfaceId": "eni-0398e7ad6e8315ef9",
+              "OwnerId": "593382876411",
+              "PrivateDnsName": "ip-172-31-28-144.eu-north-1.compute.internal",
+              "PrivateIpAddress": "172.31.28.144",
+              "PrivateIpAddresses": [
+                {
+                  "Primary": true,
+                  "PrivateDnsName": "ip-172-31-28-144.eu-north-1.compute.internal",
+                  "PrivateIpAddress": "172.31.28.144"
+                }
+              ],
+              "SourceDestCheck": true,
+              "Status": "in-use",
+              "SubnetId": "subnet-b82ec1d1",
+              "VpcId": "vpc-2c658b43",
+              "InterfaceType": "interface"
+            }
+          ],
+          "RootDeviceName": "/dev/sda1",
+          "RootDeviceType": "ebs",
+          "SecurityGroups": [
+            {
+              "GroupName": "jetbrains-projector",
+              "GroupId": "sg-0eec46ebc5e138c77"
+            }
+          ],
+          "SourceDestCheck": true,
+          "StateReason": {
+            "Code": "Client.UserInitiatedShutdown",
+            "Message": "Client.UserInitiatedShutdown: User initiated shutdown"
+          },
+          "Tags": [
+            {
+              "Key": "Name",
+              "Value": "a85d60be-rider-core.codekata.proagile.link"
+            },
+            {
+              "Key": "SammanCoach",
+              "Value": "emily"
+            }
+          ],
+          "VirtualizationType": "hvm",
+          "CpuOptions": {
+            "CoreCount": 1,
+            "ThreadsPerCore": 2
+          },
+          "CapacityReservationSpecification": {
+            "CapacityReservationPreference": "open"
+          },
+          "HibernationOptions": {
+            "Configured": false
+          },
+          "MetadataOptions": {
+            "State": "applied",
+            "HttpTokens": "optional",
+            "HttpPutResponseHopLimit": 1,
+            "HttpEndpoint": "enabled"
+          },
+          "EnclaveOptions": {
+            "Enabled": false
+          }
+        }
+      ],
+      "OwnerId": "593382876411",
+      "ReservationId": "r-0a9c72be0b70d5048"
+    },
+    {
+      "Groups": [],
+      "Instances": [
+        {
+          "AmiLaunchIndex": 0,
+          "ImageId": "ami-0ed17ff3d78e74799",
+          "InstanceId": "i-06101aa35bec34c9f",
+          "InstanceType": "t3.large",
+          "KeyName": "projector",
+          "LaunchTime": "2021-09-14T06:14:39+00:00",
+          "Monitoring": {
+            "State": "disabled"
+          },
+          "Placement": {
+            "AvailabilityZone": "eu-north-1a",
+            "GroupName": "",
+            "Tenancy": "default"
+          },
+          "PrivateDnsName": "ip-172-31-27-213.eu-north-1.compute.internal",
+          "PrivateIpAddress": "172.31.27.213",
+          "ProductCodes": [],
+          "PublicDnsName": "",
+          "State": {
+            "Code": 80,
+            "Name": "stopped"
+          },
+          "StateTransitionReason": "User initiated (2021-09-14 09:46:33 GMT)",
+          "SubnetId": "subnet-b82ec1d1",
+          "VpcId": "vpc-2c658b43",
+          "Architecture": "x86_64",
+          "BlockDeviceMappings": [
+            {
+              "DeviceName": "/dev/sda1",
+              "Ebs": {
+                "AttachTime": "2021-09-14T06:14:40+00:00",
+                "DeleteOnTermination": true,
+                "Status": "attached",
+                "VolumeId": "vol-04809a6a4ba828146"
+              }
+            }
+          ],
+          "ClientToken": "cc8a66cf-d773-4777-a4cb-f196e105ab0d",
+          "EbsOptimized": false,
+          "EnaSupport": true,
+          "Hypervisor": "xen",
+          "NetworkInterfaces": [
+            {
+              "Attachment": {
+                "AttachTime": "2021-09-14T06:14:39+00:00",
+                "AttachmentId": "eni-attach-0158699d4d2f8330d",
+                "DeleteOnTermination": true,
+                "DeviceIndex": 0,
+                "Status": "attached",
+                "NetworkCardIndex": 0
+              },
+              "Description": "",
+              "Groups": [
+                {
+                  "GroupName": "jetbrains-projector",
+                  "GroupId": "sg-0eec46ebc5e138c77"
+                }
+              ],
+              "Ipv6Addresses": [],
+              "MacAddress": "06:87:c0:ff:9f:1e",
+              "NetworkInterfaceId": "eni-0d29608db5e33d887",
+              "OwnerId": "593382876411",
+              "PrivateDnsName": "ip-172-31-27-213.eu-north-1.compute.internal",
+              "PrivateIpAddress": "172.31.27.213",
+              "PrivateIpAddresses": [
+                {
+                  "Primary": true,
+                  "PrivateDnsName": "ip-172-31-27-213.eu-north-1.compute.internal",
+                  "PrivateIpAddress": "172.31.27.213"
+                }
+              ],
+              "SourceDestCheck": true,
+              "Status": "in-use",
+              "SubnetId": "subnet-b82ec1d1",
+              "VpcId": "vpc-2c658b43",
+              "InterfaceType": "interface"
+            }
+          ],
+          "RootDeviceName": "/dev/sda1",
+          "RootDeviceType": "ebs",
+          "SecurityGroups": [
+            {
+              "GroupName": "jetbrains-projector",
+              "GroupId": "sg-0eec46ebc5e138c77"
+            }
+          ],
+          "SourceDestCheck": true,
+          "StateReason": {
+            "Code": "Client.UserInitiatedShutdown",
+            "Message": "Client.UserInitiatedShutdown: User initiated shutdown"
+          },
+          "Tags": [
+            {
+              "Key": "Name",
+              "Value": "30432a29-idea.codekata.proagile.link"
+            },
+            {
+              "Key": "SammanCoach",
+              "Value": "emily"
+            }
+          ],
+          "VirtualizationType": "hvm",
+          "CpuOptions": {
+            "CoreCount": 1,
+            "ThreadsPerCore": 2
+          },
+          "CapacityReservationSpecification": {
+            "CapacityReservationPreference": "open"
+          },
+          "HibernationOptions": {
+            "Configured": false
+          },
+          "MetadataOptions": {
+            "State": "applied",
+            "HttpTokens": "optional",
+            "HttpPutResponseHopLimit": 1,
+            "HttpEndpoint": "enabled"
+          },
+          "EnclaveOptions": {
+            "Enabled": false
+          }
+        }
+      ],
+      "OwnerId": "593382876411",
+      "ReservationId": "r-0a2fa185c7677ad50"
+    },
+    {
+      "Groups": [],
+      "Instances": [
+        {
+          "AmiLaunchIndex": 0,
+          "ImageId": "ami-0ed17ff3d78e74799",
+          "InstanceId": "i-053120b514ae89f69",
+          "InstanceType": "t3.large",
+          "KeyName": "projector",
+          "LaunchTime": "2021-07-20T09:08:40+00:00",
+          "Monitoring": {
+            "State": "disabled"
+          },
+          "Placement": {
+            "AvailabilityZone": "eu-north-1c",
+            "GroupName": "",
+            "Tenancy": "default"
+          },
+          "PrivateDnsName": "ip-172-31-13-243.eu-north-1.compute.internal",
+          "PrivateIpAddress": "172.31.13.243",
+          "ProductCodes": [],
+          "PublicDnsName": "",
+          "State": {
+            "Code": 80,
+            "Name": "stopped"
+          },
+          "StateTransitionReason": "User initiated (2021-08-03 12:36:07 GMT)",
+          "SubnetId": "subnet-ca270f89",
+          "VpcId": "vpc-2c658b43",
+          "Architecture": "x86_64",
+          "BlockDeviceMappings": [
+            {
+              "DeviceName": "/dev/sda1",
+              "Ebs": {
+                "AttachTime": "2021-07-07T07:05:30+00:00",
+                "DeleteOnTermination": true,
+                "Status": "attached",
+                "VolumeId": "vol-015ae77bbf91e278d"
+              }
+            }
+          ],
+          "ClientToken": "48096e15-e85e-41df-91c0-7ffca5adb681",
+          "EbsOptimized": false,
+          "EnaSupport": true,
+          "Hypervisor": "xen",
+          "NetworkInterfaces": [
+            {
+              "Attachment": {
+                "AttachTime": "2021-07-07T07:05:29+00:00",
+                "AttachmentId": "eni-attach-08ba41a27187f9921",
+                "DeleteOnTermination": true,
+                "DeviceIndex": 0,
+                "Status": "attached",
+                "NetworkCardIndex": 0
+              },
+              "Description": "",
+              "Groups": [
+                {
+                  "GroupName": "jetbrains-projector",
+                  "GroupId": "sg-0eec46ebc5e138c77"
+                }
+              ],
+              "Ipv6Addresses": [],
+              "MacAddress": "0e:0d:5e:5a:92:a2",
+              "NetworkInterfaceId": "eni-05492c2507a932640",
+              "OwnerId": "593382876411",
+              "PrivateDnsName": "ip-172-31-13-243.eu-north-1.compute.internal",
+              "PrivateIpAddress": "172.31.13.243",
+              "PrivateIpAddresses": [
+                {
+                  "Primary": true,
+                  "PrivateDnsName": "ip-172-31-13-243.eu-north-1.compute.internal",
+                  "PrivateIpAddress": "172.31.13.243"
+                }
+              ],
+              "SourceDestCheck": true,
+              "Status": "in-use",
+              "SubnetId": "subnet-ca270f89",
+              "VpcId": "vpc-2c658b43",
+              "InterfaceType": "interface"
+            }
+          ],
+          "RootDeviceName": "/dev/sda1",
+          "RootDeviceType": "ebs",
+          "SecurityGroups": [
+            {
+              "GroupName": "jetbrains-projector",
+              "GroupId": "sg-0eec46ebc5e138c77"
+            }
+          ],
+          "SourceDestCheck": true,
+          "StateReason": {
+            "Code": "Client.UserInitiatedShutdown",
+            "Message": "Client.UserInitiatedShutdown: User initiated shutdown"
+          },
+          "Tags": [
+            {
+              "Key": "Name",
+              "Value": "76c39921-idea.codekata.proagile.link"
+            },
+            {
+              "Key": "SammanCoach",
+              "Value": "neppord"
+            }
+          ],
+          "VirtualizationType": "hvm",
+          "CpuOptions": {
+            "CoreCount": 1,
+            "ThreadsPerCore": 2
+          },
+          "CapacityReservationSpecification": {
+            "CapacityReservationPreference": "open"
+          },
+          "HibernationOptions": {
+            "Configured": false
+          },
+          "MetadataOptions": {
+            "State": "applied",
+            "HttpTokens": "optional",
+            "HttpPutResponseHopLimit": 1,
+            "HttpEndpoint": "enabled"
+          },
+          "EnclaveOptions": {
+            "Enabled": false
+          }
+        }
+      ],
+      "OwnerId": "593382876411",
+      "ReservationId": "r-0283f8190e05b8e00"
+    },
+    {
+      "Groups": [],
+      "Instances": [
+        {
+          "AmiLaunchIndex": 0,
+          "ImageId": "ami-0ed17ff3d78e74799",
+          "InstanceId": "i-081d8079711137b98",
+          "InstanceType": "t3.large",
+          "KeyName": "projector",
+          "LaunchTime": "2021-08-30T09:46:32+00:00",
+          "Monitoring": {
+            "State": "disabled"
+          },
+          "Placement": {
+            "AvailabilityZone": "eu-north-1c",
+            "GroupName": "",
+            "Tenancy": "default"
+          },
+          "PrivateDnsName": "ip-172-31-15-238.eu-north-1.compute.internal",
+          "PrivateIpAddress": "172.31.15.238",
+          "ProductCodes": [],
+          "PublicDnsName": "",
+          "State": {
+            "Code": 80,
+            "Name": "stopped"
+          },
+          "StateTransitionReason": "User initiated",
+          "SubnetId": "subnet-ca270f89",
+          "VpcId": "vpc-2c658b43",
+          "Architecture": "x86_64",
+          "BlockDeviceMappings": [
+            {
+              "DeviceName": "/dev/sda1",
+              "Ebs": {
+                "AttachTime": "2021-08-30T09:46:33+00:00",
+                "DeleteOnTermination": true,
+                "Status": "attached",
+                "VolumeId": "vol-0db355d11a09f2acc"
+              }
+            }
+          ],
+          "ClientToken": "f6c0c482-4813-4bc3-968d-fdb2bab1e051",
+          "EbsOptimized": false,
+          "EnaSupport": true,
+          "Hypervisor": "xen",
+          "NetworkInterfaces": [
+            {
+              "Attachment": {
+                "AttachTime": "2021-08-30T09:46:32+00:00",
+                "AttachmentId": "eni-attach-0509358716daa0fc2",
+                "DeleteOnTermination": true,
+                "DeviceIndex": 0,
+                "Status": "attached",
+                "NetworkCardIndex": 0
+              },
+              "Description": "",
+              "Groups": [
+                {
+                  "GroupName": "jetbrains-projector",
+                  "GroupId": "sg-0eec46ebc5e138c77"
+                }
+              ],
+              "Ipv6Addresses": [],
+              "MacAddress": "0e:bf:06:de:d6:fa",
+              "NetworkInterfaceId": "eni-0059b3744d5b1429c",
+              "OwnerId": "593382876411",
+              "PrivateDnsName": "ip-172-31-15-238.eu-north-1.compute.internal",
+              "PrivateIpAddress": "172.31.15.238",
+              "PrivateIpAddresses": [
+                {
+                  "Primary": true,
+                  "PrivateDnsName": "ip-172-31-15-238.eu-north-1.compute.internal",
+                  "PrivateIpAddress": "172.31.15.238"
+                }
+              ],
+              "SourceDestCheck": true,
+              "Status": "in-use",
+              "SubnetId": "subnet-ca270f89",
+              "VpcId": "vpc-2c658b43",
+              "InterfaceType": "interface"
+            }
+          ],
+          "RootDeviceName": "/dev/sda1",
+          "RootDeviceType": "ebs",
+          "SecurityGroups": [
+            {
+              "GroupName": "jetbrains-projector",
+              "GroupId": "sg-0eec46ebc5e138c77"
+            }
+          ],
+          "SourceDestCheck": true,
+          "StateReason": {
+            "Code": "Client.InstanceInitiatedShutdown",
+            "Message": "Client.InstanceInitiatedShutdown: Instance initiated shutdown"
+          },
+          "Tags": [
+            {
+              "Key": "Name",
+              "Value": "14c8ddae-pycharm.codekata.proagile.link"
+            },
+            {
+              "Key": "SammanCoach",
+              "Value": "neppord"
+            }
+          ],
+          "VirtualizationType": "hvm",
+          "CpuOptions": {
+            "CoreCount": 1,
+            "ThreadsPerCore": 2
+          },
+          "CapacityReservationSpecification": {
+            "CapacityReservationPreference": "open"
+          },
+          "HibernationOptions": {
+            "Configured": false
+          },
+          "MetadataOptions": {
+            "State": "applied",
+            "HttpTokens": "optional",
+            "HttpPutResponseHopLimit": 1,
+            "HttpEndpoint": "enabled"
+          },
+          "EnclaveOptions": {
+            "Enabled": false
+          }
+        }
+      ],
+      "OwnerId": "593382876411",
+      "ReservationId": "r-048011c60c47ad123"
+    },
+    {
+      "Groups": [],
+      "Instances": [
+        {
+          "AmiLaunchIndex": 0,
+          "ImageId": "ami-0ed17ff3d78e74799",
+          "InstanceId": "i-05494b8fdfe7904d2",
+          "InstanceType": "t3.large",
+          "KeyName": "projector",
+          "LaunchTime": "2021-08-31T13:14:18+00:00",
+          "Monitoring": {
+            "State": "disabled"
+          },
+          "Placement": {
+            "AvailabilityZone": "eu-north-1c",
+            "GroupName": "",
+            "Tenancy": "default"
+          },
+          "PrivateDnsName": "ip-172-31-8-93.eu-north-1.compute.internal",
+          "PrivateIpAddress": "172.31.8.93",
+          "ProductCodes": [],
+          "PublicDnsName": "",
+          "State": {
+            "Code": 80,
+            "Name": "stopped"
+          },
+          "StateTransitionReason": "User initiated (2021-09-14 06:10:25 GMT)",
+          "SubnetId": "subnet-ca270f89",
+          "VpcId": "vpc-2c658b43",
+          "Architecture": "x86_64",
+          "BlockDeviceMappings": [
+            {
+              "DeviceName": "/dev/sda1",
+              "Ebs": {
+                "AttachTime": "2021-08-31T13:14:19+00:00",
+                "DeleteOnTermination": true,
+                "Status": "attached",
+                "VolumeId": "vol-0dd3b44e615c6e623"
+              }
+            }
+          ],
+          "ClientToken": "f9f36c88-fcff-4926-b7d6-c5ecc08367f3",
+          "EbsOptimized": false,
+          "EnaSupport": true,
+          "Hypervisor": "xen",
+          "NetworkInterfaces": [
+            {
+              "Attachment": {
+                "AttachTime": "2021-08-31T13:14:18+00:00",
+                "AttachmentId": "eni-attach-04b88d6dda808ac59",
+                "DeleteOnTermination": true,
+                "DeviceIndex": 0,
+                "Status": "attached",
+                "NetworkCardIndex": 0
+              },
+              "Description": "",
+              "Groups": [
+                {
+                  "GroupName": "jetbrains-projector",
+                  "GroupId": "sg-0eec46ebc5e138c77"
+                }
+              ],
+              "Ipv6Addresses": [],
+              "MacAddress": "0e:21:49:43:34:94",
+              "NetworkInterfaceId": "eni-0a4d86c2e2690da54",
+              "OwnerId": "593382876411",
+              "PrivateDnsName": "ip-172-31-8-93.eu-north-1.compute.internal",
+              "PrivateIpAddress": "172.31.8.93",
+              "PrivateIpAddresses": [
+                {
+                  "Primary": true,
+                  "PrivateDnsName": "ip-172-31-8-93.eu-north-1.compute.internal",
+                  "PrivateIpAddress": "172.31.8.93"
+                }
+              ],
+              "SourceDestCheck": true,
+              "Status": "in-use",
+              "SubnetId": "subnet-ca270f89",
+              "VpcId": "vpc-2c658b43",
+              "InterfaceType": "interface"
+            }
+          ],
+          "RootDeviceName": "/dev/sda1",
+          "RootDeviceType": "ebs",
+          "SecurityGroups": [
+            {
+              "GroupName": "jetbrains-projector",
+              "GroupId": "sg-0eec46ebc5e138c77"
+            }
+          ],
+          "SourceDestCheck": true,
+          "StateReason": {
+            "Code": "Client.UserInitiatedShutdown",
+            "Message": "Client.UserInitiatedShutdown: User initiated shutdown"
+          },
+          "Tags": [
+            {
+              "Key": "Name",
+              "Value": "717ea5e2-erlang.codekata.proagile.link"
+            },
+            {
+              "Key": "SammanCoach",
+              "Value": "emily"
+            }
+          ],
+          "VirtualizationType": "hvm",
+          "CpuOptions": {
+            "CoreCount": 1,
+            "ThreadsPerCore": 2
+          },
+          "CapacityReservationSpecification": {
+            "CapacityReservationPreference": "open"
+          },
+          "HibernationOptions": {
+            "Configured": false
+          },
+          "MetadataOptions": {
+            "State": "applied",
+            "HttpTokens": "optional",
+            "HttpPutResponseHopLimit": 1,
+            "HttpEndpoint": "enabled"
+          },
+          "EnclaveOptions": {
+            "Enabled": false
+          }
+        }
+      ],
+      "OwnerId": "593382876411",
+      "ReservationId": "r-08d19031b64be2a32"
+    }
+  ],
+  "ResponseMetadata": {
+    "RequestId": "742e51c8-96bd-36d9-86ed-65bfaa41971b",
+    "HTTPStatusCode": 200,
+    "HTTPHeaders": {
+      "x-amzn-requestid": "742e51c8-11bd-46d9-86ed-65bfaa41971b",
+      "cache-control": "no-cache, no-store",
+      "strict-transport-security": "max-age=31536000; includeSubDomains",
+      "vary": "accept-encoding",
+      "content-type": "text/xml;charset=UTF-8",
+      "transfer-encoding": "chunked",
+      "date": "Mon, 27 Sep 2021 09:30:10 GMT",
+      "server": "AmazonEC2"
+    },
+    "RetryAttempts": 0
+  }
+}

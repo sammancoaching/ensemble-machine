@@ -1,0 +1,4 @@
+machines
+
+0) KataMachine(region_name='ca-central-1', host_ip='18.157.73.25', url='https://c7f3aa50-1-idea.codekata.proagile.link')
+1) KataMachine(region_name='ca-central-1', host_ip='18.157.73.26', url='https://c7f3aa50-2-idea.codekata.proagile.link')

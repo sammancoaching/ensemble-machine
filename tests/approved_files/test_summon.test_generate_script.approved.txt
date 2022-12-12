@@ -1,0 +1,65 @@
+#! /bin/sh
+set -ex
+
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+echo "deb https://download.mono-project.com/repo/ubuntu stable-focal main" |   sudo tee /etc/apt/sources.list.d/mono-official-stable.list
+
+sudo apt update -y
+sudo apt install -y less python3-pip libxext6 libxrender1 libxtst6 libfreetype6 libxi6 libxss1 nginx certbot python3-certbot-nginx openjdk-17-jdk
+
+
+
+sudo adduser --gecos "" --disabled-password typist
+
+sudo -u typist git config --global user.name "Typist"
+sudo -u typist git config --global user.email "typist@example.com"
+
+sudo -u typist pip3 install projector-installer==1.6.0 --user
+
+sudo -u typist /home/typist/.local/bin/projector \
+ --accept-license autoinstall \
+ --config-name "idea" \
+ --ide-name "IntelliJ IDEA Ultimate 2021.2" \
+ --port "8080"
+
+cat << ENV | sudo tee -a /etc/environment
+
+ENV
+
+cat << SCRIPT | sudo tee /lib/systemd/system/idea.service
+[Unit]
+Description=Jetbrains Projector - idea
+
+[Service]
+User=typist
+Type=simple
+ExecStart=/home/typist/.projector/configs/%N/run.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+SCRIPT
+
+sudo systemctl daemon-reload
+sudo systemctl enable "idea"
+sudo systemctl start "idea"
+
+#configure nginx
+cat << CONFIG | sudo tee /etc/nginx/sites-available/default
+server {
+  listen       80;
+  server_name  c7f3aa50-1-idea.codekata.proagile.link;
+  location / {
+    proxy_pass http://localhost:8080;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade \$http_upgrade;
+    proxy_set_header Connection 'upgrade';
+    proxy_set_header Host \$host;
+    proxy_cache_bypass \$http_upgrade;
+  }
+}
+CONFIG
+
+# configure nginx with let's encrypt certificate
+sudo certbot --nginx   --non-interactive   --redirect   --agree-tos   --register-unsafely-without-email   --domain c7f3aa50-1-idea.codekata.proagile.link
+

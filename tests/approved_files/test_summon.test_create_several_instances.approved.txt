@@ -1,0 +1,4 @@
+instances
+
+0) ProjectorInstance(config_name='idea', dns_name='idea-c7f3aa50-1.codekata.proagile.link', coach='emily', region_name='ca-central-1', room=1, instance_id=None)
+1) ProjectorInstance(config_name='idea', dns_name='idea-c7f3aa50-2.codekata.proagile.link', coach='emily', region_name='ca-central-1', room=2, instance_id=None)
