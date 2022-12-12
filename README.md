@@ -19,6 +19,8 @@ The aws_zones.json file should look like this:
 
 Replace those regions, ids and key file name with the ones you have for your AWS account.
 
+There are still other ProAgile specific settings in these scripts. We are working on making these configurable. 
+
 ## How to create a new practice machine that uses JetBrains Projector
 
     python summon.py
@@ -144,11 +146,13 @@ Log into machine and delete transient files:
 
 ## Golang
 For goland  you need to additionally:
+
     - create a gopath eg /home/typist/gopath, and configure that in the IDE
     - run 'sudo apt-get install --reinstall ca-certificates' (maybe?)
 
 ### C Test Framework cgreen
 This is what I did to augment the clion config:
+
     - sh login.sh <machine dns or ip>
     - git clone https://github.com/cgreen-devs/cgreen.git
     - sudo apt install cmake
@@ -161,5 +165,6 @@ In CMakeLists.txt files, find_package(cgreen) should then not crash
 ### Erlang in IntelliJ
 Add the 'extra package' "erlang" to the IDE config
 additionally:
+
     - install the erlang IntelliJ plugin
     - restart the machine
