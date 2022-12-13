@@ -3,3 +3,4 @@
 __pycache__
 *.csv
 aws_zones.json
+aws_machine_spec.json

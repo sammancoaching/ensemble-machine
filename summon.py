@@ -15,6 +15,7 @@ import update_dns
 
 
 def read_ide_config(config=None):
+    """ ide_config.json contains details of how to install software and configure projector for each kind of IDE you want to be able to summon. """
     config = config or pathlib.Path().resolve() / "ide_config.json"
     assert config.exists(), "missing ide_config.json file, expected to be in current working directory"
     with open(config) as f:
@@ -25,11 +26,21 @@ def read_ide_config(config=None):
 
 
 def read_regions_config(config=None, profile_name="default"):
+    """ aws_zones.json contains dictionaries for each aws zone you want to be able to summon instances in. """
     config = config or pathlib.Path().resolve() / "aws_zones.json"
     assert config.exists(), "missing aws_zones.json file, expected to be in current working directory"
     with open(config) as f:
         regions_config = json.load(f)
         return regions_config[profile_name]
+
+
+def read_aws_defaults(config=None, profile_name="default"):
+    """ aws_defaults are values that are set the same for all regions """
+    config = config or pathlib.Path().resolve() / "aws_machine_spec.json"
+    assert config.exists(), "missing aws_machine_spec.json file, expected to be in current working directory"
+    with open(config) as f:
+        aws_defaults = json.load(f)
+        return aws_defaults[profile_name]
 
 
 def generate_script(dns_name, config_name,
@@ -138,15 +149,15 @@ class ProjectorInstance:
     instance_id: str = None
 
 
-def create_instances(classroom_size, config_name, session_id, coach, region_name):
+def create_instances(classroom_size, config_name, session_id, coach, region_name, url_stem="codekata.proagile.link"):
     if classroom_size <= 1:
-        dns_name = f"{config_name}-{session_id}.codekata.proagile.link"
+        dns_name = f"{config_name}-{session_id}.{url_stem}"
         return [ProjectorInstance(config_name, dns_name, coach, region_name)]
     else:
         instances = []
         for i in range(classroom_size):
             room = i + 1
-            dns_name = f"{config_name}-{session_id}-{room}.codekata.proagile.link"
+            dns_name = f"{config_name}-{session_id}-{room}.{url_stem}"
             instance = ProjectorInstance(config_name, dns_name, coach, region_name, room)
             instances.append(instance)
         return instances
@@ -174,29 +185,31 @@ def write_classroom_file(f, instances):
 )
 @click.option(
     "--region-name",
-    help=f"the aws region name (default eu-north-1): {', '.join(read_regions_config().keys())}",
-    default="eu-north-1"
+    help=f"the aws region name: {', '.join(read_regions_config().keys())}",
+    default=None
 )
 @click.option(
     "--aws-profile",
     default=None,
-    help="the aws profile, if you dont use the default"
+    help="the aws profile, if you don't use the default"
 )
 @click.option(
     "--classroom-size",
     default=0,
-    help="if larger then 0 then it will create a classroom file, which is a csv file that can be used for other "
-         "commands and as a signup sheet "
+    help="How many machines to create "
 )
 def summon(config_name, region_name, aws_profile, classroom_size):
     coach = os.getlogin()
     session_id = secrets.token_hex(4)
-    instances = create_instances(classroom_size, config_name, session_id, coach, region_name)
+    aws_defaults = read_aws_defaults(profile_name=aws_profile)
+
+    region_name = region_name or aws_defaults["region"]
+    instances = create_instances(classroom_size, config_name, session_id, coach, region_name, aws_defaults["url_stem"])
 
     session = boto3.Session(profile_name=aws_profile, region_name=region_name)
     ec2 = session.client("ec2")
     for projector_instance in instances:
-        summon_projector_instance(ec2, projector_instance, profile_name=aws_profile)
+        summon_projector_instance(ec2, projector_instance, profile_name=aws_profile, aws_defaults=aws_defaults)
 
     if len(instances) > 1:
         filename = f"{session_id}-classroom.csv"
@@ -216,34 +229,29 @@ def summon(config_name, region_name, aws_profile, classroom_size):
     update_dns.Doer().doit()
 
 
-def summon_projector_instance(ec2, projector_instance: ProjectorInstance, profile_name):
-    tags = [
-        {'Key': 'Name', 'Value': projector_instance.dns_name},
-        {'Key': 'SammanCoach', 'Value': projector_instance.coach},
-    ]
+def summon_projector_instance(ec2, projector_instance: ProjectorInstance, profile_name, aws_defaults):
     machine_config = read_ide_config()[projector_instance.config_name]
-    note = None
-    if 'note' in machine_config:
-        note = machine_config['note']
-        del machine_config['note']
     user_data = generate_script(
         projector_instance.dns_name,
         **machine_config,
     )
-    instance = launch_instance(ec2, tags, user_data, projector_instance.region_name, profile_name)
-    if note:
-        print("-=-=- NOTE -=-=-\n" + note)
+    tags = [
+        {'Key': 'Name', 'Value': projector_instance.dns_name},
+        {'Key': aws_defaults["coach_tag"], 'Value': projector_instance.coach},
+    ]
+    instance = launch_instance(ec2, tags, user_data, projector_instance.region_name, profile_name, aws_defaults)
+
     # set the instance_id in the ProjectorInstance now that we have it
     projector_instance.instance_id = instance["InstanceId"]
 
 
-def launch_instance(ec2, tags, user_data, region_name, profile_name):
+def launch_instance(ec2, tags, user_data, region_name, profile_name, aws_defaults):
     region_config = read_regions_config(profile_name=profile_name)[region_name]
     response = ec2.run_instances(
         MinCount=1,
         MaxCount=1,
         ImageId=region_config["image_id"],
-        InstanceType="t3.large",
+        InstanceType= aws_defaults["instance_type"],
         KeyName=region_config["key_name"],
         SecurityGroupIds=region_config["security_group_ids"],
         UserData=user_data,
@@ -253,8 +261,8 @@ def launch_instance(ec2, tags, user_data, region_name, profile_name):
             'Ebs':
             {
                 'DeleteOnTermination': True,
-                'VolumeType': 'gp2',
-                'VolumeSize': 16,
+                'VolumeType': aws_defaults["volume_type"],
+                'VolumeSize': aws_defaults["volume_size"],
             }
         }]
     )

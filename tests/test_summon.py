@@ -4,7 +4,7 @@ import json
 from approvaltests import verify, verify_all
 
 from summon import write_classroom_file, create_instances, ProjectorInstance, generate_script, read_ide_config, \
-    read_regions_config
+    read_regions_config, read_aws_defaults
 
 
 def test_create_several_instances():
@@ -13,7 +13,7 @@ def test_create_several_instances():
     region_name = "ca-central-1"
     coach = "emily"
 
-    instances = create_instances(2, config_name, session_id, coach, region_name)
+    instances = create_instances(2, config_name, session_id, coach, region_name, url_stem="codekata.proagile.link")
     verify_all("instances", instances)
 
 
@@ -23,7 +23,7 @@ def test_create_instance():
     region_name = "ca-central-1"
     coach = "emily"
     
-    instances = create_instances(1, config_name, session_id, coach, region_name)
+    instances = create_instances(1, config_name, session_id, coach, region_name, url_stem="codekata.proagile.link")
     verify_all("instances", instances)
 
 
@@ -95,3 +95,27 @@ def test_read_aws_regions(tmp_path):
     assert list(region_config.keys()) == ["eu-central-1"]
     assert list(region_config["eu-central-1"].keys()) == ["image_id", "security_group_ids", "key_name"]
     assert list(region_config["eu-central-1"]["security_group_ids"]) == ["sg-0d66d1b4ba3786ff3"]
+
+
+def test_read_aws_config(tmp_path):
+    p = tmp_path / "aws_machine_spec.json"
+    config = """\
+{
+  "bache_consulting": {
+    "region": "eu-north-1",
+    "instance_type": "t3.large",
+    "volume_type": "gp2",
+    "volume_size": 16,
+    "coach_tag": "SammanCoach",
+    "url_stem": "codekata.proagile.link"
+  }
+}
+"""
+    p.write_text(config)
+
+    aws_defaults = read_aws_defaults(config=p, profile_name="bache_consulting")
+
+    assert aws_defaults["region"] == "eu-north-1"
+    assert aws_defaults["volume_size"] == 16
+    assert aws_defaults["url_stem"] == "codekata.proagile.link"
+

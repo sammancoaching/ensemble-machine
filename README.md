@@ -5,7 +5,27 @@ Support scripts for Samman Coaches to provision practice machines on AWS EC2. Be
     - an account on AWS
     - AWS credentials
     - pem file(s) for each AWS region you want to use
-    - a aws_zones.json file specifying pem file, images and security groups.
+    - a aws_machine_spec.json file specifying default settings for machines in all regions
+    - a aws_zones.json file specifying pem file, images and security groups for each AWS region you want to use.
+
+### AWS machine spec configuration file
+This file should be named "aws_machine_spec.json" and look something like this:
+
+    {
+          "default": {
+            "region": "eu-north-1",
+            "instance_type": "t3.large",
+            "volume_type": "gp2",
+            "volume_size": 16,
+            "coach_tag": "SammanCoach",
+            "url_stem": "codekata.proagile.link"
+          }
+    }
+
+The top-level key "default" refers to your aws profile name (as defined in your .aws/credentials file). 
+* region - the default region to create instances in if none is specified on the command line
+
+### AWS zones configuration file
 
 The aws_zones.json file should look like this:
 
