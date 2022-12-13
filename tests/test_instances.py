@@ -28,7 +28,7 @@ def datetime_handler(x):
 
 def instance_report_from_response(json_response):
     obj = json.loads(json_response)
-    return instances_from_response(obj)
+    return instances_from_response(obj, "codekata.proagile.link")
 
 
 def save_new_response_json():

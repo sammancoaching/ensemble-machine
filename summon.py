@@ -149,7 +149,7 @@ class ProjectorInstance:
     instance_id: str = None
 
 
-def create_instances(classroom_size, config_name, session_id, coach, region_name, url_stem="codekata.proagile.link"):
+def create_instances(classroom_size, config_name, session_id, coach, region_name, url_stem):
     if classroom_size <= 1:
         dns_name = f"{config_name}-{session_id}.{url_stem}"
         return [ProjectorInstance(config_name, dns_name, coach, region_name)]

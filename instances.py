@@ -7,7 +7,7 @@ from pathlib import Path
 import boto3
 import click
 
-from summon import read_regions_config
+from summon import read_regions_config, read_aws_defaults
 
 @dataclass
 class RunningInstance:
@@ -42,7 +42,9 @@ def main(region_name, aws_profile, coach=None):
 
 def all_instances(region_name, aws_profile):
     response = get_sammancoach_machines(region_name, aws_profile)
-    instances = instances_from_response(response)
+    url_stem = read_aws_defaults(profile_name=aws_profile)["url_stem"]
+
+    instances = instances_from_response(response, url_stem)
     return instances
 
 
@@ -63,7 +65,7 @@ def get_sammancoach_machines(region_name, aws_profile):
     return response
 
 
-def instances_from_response(obj):
+def instances_from_response(obj, url_stem):
     machines = []
     for reservation in obj['Reservations']:
         for instance in reservation['Instances']:
@@ -82,9 +84,9 @@ def instances_from_response(obj):
                 machine_data[key] = value
             machines.append(machine_data)
     instances = []
+
     for machine in machines:
-        # TODO: find better way to filter out projector machines!
-        if 'codekata.proagile.link' in machine['Name']:
+        if url_stem in machine['Name']:
             instance = RunningInstance(ip_address=f"{machine['IP']:16}",
                                        state=f"{machine['State']:12}",
                                        coach=f"{machine['SammanCoach']:12}",

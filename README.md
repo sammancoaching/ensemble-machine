@@ -3,8 +3,7 @@
 Support scripts for Samman Coaches to provision practice machines on AWS EC2. Before these will work you will need:
     
     - an account on AWS
-    - AWS credentials
-    - pem file(s) for each AWS region you want to use
+    - AWS credentials for programmatic access via [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html) 
     - a aws_machine_spec.json file specifying default settings for machines in all regions
     - a aws_zones.json file specifying pem file, images and security groups for each AWS region you want to use.
 
@@ -24,6 +23,10 @@ This file should be named "aws_machine_spec.json" and look something like this:
 
 The top-level key "default" refers to your aws profile name (as defined in your .aws/credentials file). 
 * region - the default region to create instances in if none is specified on the command line
+* coach_tag - a tag which will be populated on the instance for the name of the logged in user who created the instance
+* url_stem - the custom url to assign to instances.
+
+The url_stem should be a url that your organization has control of and can assign using AWS.
 
 ### AWS zones configuration file
 
@@ -55,8 +58,6 @@ You will want to create a new security group for your summoned machines. Create 
 * SSH for ipv4
 
 The outbound rules that come by default seem to be ok - should allow all traffic on all ports for ipv4.
-
-There are still other ProAgile specific settings in these scripts. We are working on making these configurable. 
 
 ## How to create a new practice machine that uses JetBrains Projector
 
