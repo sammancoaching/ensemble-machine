@@ -24,11 +24,12 @@ def read_ide_config(config=None):
         return configs
 
 
-def read_regions_config(config=None):
+def read_regions_config(config=None, profile_name="default"):
     config = config or pathlib.Path().resolve() / "aws_zones.json"
     assert config.exists(), "missing aws_zones.json file, expected to be in current working directory"
     with open(config) as f:
-        return json.load(f)
+        regions_config = json.load(f)
+        return regions_config[profile_name]
 
 
 def generate_script(dns_name, config_name,
@@ -195,7 +196,7 @@ def summon(config_name, region_name, aws_profile, classroom_size):
     session = boto3.Session(profile_name=aws_profile, region_name=region_name)
     ec2 = session.client("ec2")
     for projector_instance in instances:
-        summon_projector_instance(ec2, projector_instance)
+        summon_projector_instance(ec2, projector_instance, profile_name=aws_profile)
 
     if len(instances) > 1:
         filename = f"{session_id}-classroom.csv"
@@ -215,7 +216,7 @@ def summon(config_name, region_name, aws_profile, classroom_size):
     update_dns.Doer().doit()
 
 
-def summon_projector_instance(ec2, projector_instance: ProjectorInstance):
+def summon_projector_instance(ec2, projector_instance: ProjectorInstance, profile_name):
     tags = [
         {'Key': 'Name', 'Value': projector_instance.dns_name},
         {'Key': 'SammanCoach', 'Value': projector_instance.coach},
@@ -229,22 +230,22 @@ def summon_projector_instance(ec2, projector_instance: ProjectorInstance):
         projector_instance.dns_name,
         **machine_config,
     )
-    instance = launch_instance(ec2, tags, user_data, projector_instance.region_name)
+    instance = launch_instance(ec2, tags, user_data, projector_instance.region_name, profile_name)
     if note:
         print("-=-=- NOTE -=-=-\n" + note)
     # set the instance_id in the ProjectorInstance now that we have it
     projector_instance.instance_id = instance["InstanceId"]
 
 
-def launch_instance(ec2, tags, user_data, region_name):
-    region_config = read_regions_config()[region_name]
+def launch_instance(ec2, tags, user_data, region_name, profile_name):
+    region_config = read_regions_config(profile_name=profile_name)[region_name]
     response = ec2.run_instances(
         MinCount=1,
         MaxCount=1,
-        ImageId=region_config["image_id"],  # old "ami-0ed17ff3d78e74700"
+        ImageId=region_config["image_id"],
         InstanceType="t3.large",
         KeyName=region_config["key_name"],
-        SecurityGroupIds=region_config["security_group_ids"],  # old "sg-0eec46ebc5e138c72"
+        SecurityGroupIds=region_config["security_group_ids"],
         UserData=user_data,
         TagSpecifications=[{'ResourceType': 'instance', 'Tags': tags}],
         BlockDeviceMappings=[{

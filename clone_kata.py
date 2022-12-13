@@ -9,8 +9,6 @@ import csv
 from instances import all_instances
 from summon import read_regions_config
 
-region_configs = read_regions_config()
-
 @dataclass
 class KataMachine:
     region_name: str
@@ -43,6 +41,7 @@ def clone_kata_commandline(kata):
                 '\
               """
 
+
 @click.command()
 @click.option(
     "--kata",
@@ -52,7 +51,7 @@ def clone_kata_commandline(kata):
 )
 @click.option(
     "--region-name",
-    help=f"the aws region name (default eu-north-1): {', '.join(region_configs.keys())}",
+    help=f"the aws region name (default eu-north-1): {', '.join(read_regions_config().keys())}",
     default="eu-north-1"
 )
 @click.option(

@@ -10,14 +10,31 @@ Support scripts for Samman Coaches to provision practice machines on AWS EC2. Be
 The aws_zones.json file should look like this:
 
     {
-        "eu-central-1": {
-            "image_id": "ami-05f7491af5eef733c",
-            "security_group_ids": ["sg-0d66d1b4ba3786ff3"],
-            "key_name": "pem-eu-central-1"
+        "default": {
+            "eu-central-1": {
+                "image_id": "ami-05f7491af5eef733c",
+                "security_group_ids": ["sg-0d66d1b4ba3786ff3"],
+                "key_name": "pem-eu-central-1"
+            }
         }
     }
 
-Replace those regions, ids and key file name with the ones you have for your AWS account.
+The top-level key "default" refers to your aws profile name (as defined in your .aws/credentials file). The next level key is the AWS region name. Below that you need a valid image id, security group and key name.
+
+To find out the relevant image id, go into your AWS management console for the region in question. Ask it to make a new instance and find the option to create an Ubuntu LTS instance. It should show the image id and you can copy it.
+
+You will want to create a new key pair for your summoned machines. Create one, name it appropriately, download and store it in your .ssh folder.
+
+You will want to create a new security group for your summoned machines. Create a new one. Add Inbound rules so you can have the following access:
+* Custom TCP on port 8080 for ipv4
+* Custom TCP on port 8080 for ipv6
+* HTTP for ipv4
+* HTTP for ipv6
+* HTTPS for ipv4
+* HTTPS for ipv6
+* SSH for ipv4
+
+The outbound rules that come by default seem to be ok - should allow all traffic on all ports for ipv4.
 
 There are still other ProAgile specific settings in these scripts. We are working on making these configurable. 
 

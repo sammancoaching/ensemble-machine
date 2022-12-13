@@ -79,10 +79,12 @@ def test_read_aws_regions(tmp_path):
     p = tmp_path / "aws_zones.json"
     config = """\
 {
-    "eu-central-1": {
-        "image_id": "ami-05f7491af5eef733c",
-        "security_group_ids": ["sg-0d66d1b4ba3786ff3"],
-        "key_name": "pem-eu-central-1"
+    "default": {
+        "eu-central-1": {
+            "image_id": "ami-05f7491af5eef733c",
+            "security_group_ids": ["sg-0d66d1b4ba3786ff3"],
+            "key_name": "pem-eu-central-1"
+        }
     }
 }
 """

@@ -9,9 +9,6 @@ import click
 
 from summon import read_regions_config
 
-region_configs = read_regions_config()
-
-
 @dataclass
 class RunningInstance:
     ip_address: str
@@ -24,7 +21,7 @@ class RunningInstance:
 @click.command()
 @click.option(
     "--region-name",
-    help=f"the aws region name (default eu-north-1): {', '.join(region_configs.keys())}",
+    help=f"the aws region name (default eu-north-1): {', '.join(read_regions_config().keys())}",
     default="eu-north-1"
 )
 @click.option(
