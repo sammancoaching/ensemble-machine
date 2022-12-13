@@ -1,11 +1,12 @@
 # Ensemble Machine
+Support scripts for Samman Coaches to provision practice machines on AWS EC2. 
 
-Support scripts for Samman Coaches to provision practice machines on AWS EC2. Before these will work you will need:
-    
-    - an account on AWS
-    - AWS credentials for programmatic access via [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html) 
-    - a aws_machine_spec.json file specifying default settings for machines in all regions
-    - a aws_zones.json file specifying pem file, images and security groups for each AWS region you want to use.
+Before these will work you will need:
+* an account on AWS
+* AWS credentials for programmatic access via [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html) 
+* a aws_machine_spec.json file specifying default settings for machines in all regions.
+* a aws_zones.json file specifying pem file, images and security groups for each AWS region you want to use.
+* a DNS name your machines can use in their urls.
 
 ### AWS machine spec configuration file
 This file should be named "aws_machine_spec.json" and look something like this:

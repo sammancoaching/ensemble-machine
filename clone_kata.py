@@ -57,7 +57,7 @@ def clone_kata_commandline(kata):
 @click.option(
     "--aws-profile",
     default=None,
-    help="the aws profile, if you dont use the default"
+    help="the aws profile, if you don't use the default"
 )
 @click.option(
     "--host_ip",
@@ -74,21 +74,21 @@ def clone_kata_commandline(kata):
 def clone_kata(kata, region_name, aws_profile, host_ip, coach, classroom):
     commandline = clone_kata_commandline(kata)
     machines = determine_machines_to_update(aws_profile, classroom, coach, host_ip, region_name)
-    run_commandline_on_machines(commandline, machines)
+    run_commandline_on_machines(commandline, machines, aws_profile)
 
 
-def run_commandline_on_machines(commandline, machines):
+def run_commandline_on_machines(commandline, machines, aws_profile):
     for m in machines:
         try:
             print(f"will run remote commands on {m}")
-            c = connect_to_machine(m)
+            c = connect_to_machine(m, aws_profile)
             c.run(commandline)
         except Exception as e:
             print("unexpected problem running remote commands on machine ", m, e)
 
 
-def connect_to_machine(machine):
-    key_name = region_configs[machine.region_name]["key_name"]
+def connect_to_machine(machine, aws_profile):
+    key_name = read_regions_config(profile_name=aws_profile)[machine.region_name]["key_name"]
     key_file = os.path.expanduser(f"~/.ssh/{key_name}.pem")
     c = Connection(host=machine.host_ip.strip(), user='ubuntu', connect_kwargs={
         "key_filename": key_file,

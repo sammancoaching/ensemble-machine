@@ -47,7 +47,7 @@ sudo -u typist -- sh -c '\
 def download_plugin(plugin, region_name, aws_profile, host_ip, coach, classroom):
     commandline = download_plugin_commandline(plugin)
     machines = determine_machines_to_update(aws_profile, classroom, coach, host_ip, region_name)
-    run_commandline_on_machines(commandline, machines)
+    run_commandline_on_machines(commandline, machines, aws_profile)
 
 
 if __name__ == "__main__":
