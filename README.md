@@ -60,11 +60,10 @@ You will want to create a new security group for your summoned machines. Create 
 
 The outbound rules that come by default seem to be ok - should allow all traffic on all ports for ipv4.
 
-## How to create a new practice machine that uses JetBrains Projector
+## Create a new practice machine that uses JetBrains Projector
+Use this script:
 
-    python summon.py
-
-... then follow the instructions.
+    python summon.py --help
 
 ## How to login to a summoned machine
 
@@ -79,12 +78,12 @@ The outbound rules that come by default seem to be ok - should allow all traffic
 Use the AWS console
 
 ## How to clone a repo to a machine
+Use this script:
 
-    sh clone_kata.sh https://github.com/emilybache/starter.git b5f76de4-clion.codekata.proagile.link
+    python clone_kata.py --help
 
 ## How to see what state the Projector instances have
-
-Example run:
+Use this script:
 
     $ python instances.py
     d5f4dba2-clion.codekata.proagile.link             stopped     ebjaolo
@@ -92,9 +91,12 @@ Example run:
     0899b6a8-clion.codekata.proagile.link             stopped     ebjaolo
     46b0cd53-clion.codekata.proagile.link             stopped     emily
 
-# How to shut down a machine?
+# How to shut down a machine
+Note - this script is not aware of different aws profiles or regions:
 
     sh turn_off_machine.sh b5f76de4-clion.codekata.proagile.link
+
+Otherwise - use the AWS console.
 
 # How to know which version of the IDE to use?
 
