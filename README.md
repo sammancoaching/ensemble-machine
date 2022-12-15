@@ -18,16 +18,16 @@ This file should be named "aws_machine_spec.json" and look something like this:
             "volume_type": "gp2",
             "volume_size": 16,
             "coach_tag": "SammanCoach",
-            "url_stem": "codekata.proagile.link"
+            "url_stem": "codekata.proagile.link",
+            "hosted_dns_zone_name": "proagile.link."
           }
     }
 
 The top-level key "default" refers to your aws profile name (as defined in your .aws/credentials file). 
 * region - the default region to create instances in if none is specified on the command line
-* coach_tag - a tag which will be populated on the instance for the name of the logged in user who created the instance
-* url_stem - the custom url to assign to instances.
-
-The url_stem should be a url that your organization has control of and can assign using AWS.
+* coach_tag - a tag which will be populated on the instance with the name of the user who created it
+* url_stem - the custom url to assign to instances. This should be a url that your organization has control of and can assign using AWS Route53.
+* hosted_dns_zone_name - the name of the dns zone in AWS Route53 you will assign to your machines.
 
 ### AWS zones configuration file
 
