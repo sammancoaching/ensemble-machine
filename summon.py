@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import configparser
+import logging
 import csv
 import json
 import os
@@ -11,13 +11,17 @@ import boto3
 import click
 from dataclasses import dataclass
 
-import update_dns
+logging.basicConfig(level=logging.INFO)
+
+from update_dns import DnsUpdater
 
 
 def read_ide_config(config=None):
     """ ide_config.json contains details of how to install software and configure projector for each kind of IDE you want to be able to summon. """
     config = config or pathlib.Path().resolve() / "ide_config.json"
-    assert config.exists(), "missing ide_config.json file, expected to be in current working directory"
+    if not config.exists():
+        logging.warning("missing ide_config.json file, expected to be in current working directory")
+        return {}
     with open(config) as f:
         configs = json.load(f)
         for key in configs.keys():
@@ -226,7 +230,8 @@ def summon(config_name, region_name, aws_profile, classroom_size):
     #    response = ec2.monitor_instances(InstanceIds=['INSTANCE_ID'])
     #    https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Waiter.InstanceRunning
     time.sleep(15)
-    update_dns.Doer().doit()
+    aws_regions = read_regions_config(aws_profile).keys()
+    DnsUpdater(aws_defaults, aws_regions).update_ensemble_machine_dns_records()
 
 
 def summon_projector_instance(ec2, projector_instance: ProjectorInstance, profile_name, aws_defaults):
@@ -270,7 +275,4 @@ def launch_instance(ec2, tags, user_data, region_name, profile_name, aws_default
 
 
 if __name__ == "__main__":
-    import logging
-
-    logging.basicConfig(level=logging.INFO)
     summon()
