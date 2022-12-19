@@ -99,6 +99,15 @@ Buy a suitable domain name, and update its name servers to point at the ones on 
 
 # Tips and troubleshooting
 
+## Fixing the keymap
+When you have several people accessing a projector machine from different host operating systems, it has a tendency to re-set the keymap somewhat randomly. This can get rather annoying if copy and paste suddenly stop working for people on Windows when a Mac user happens to click somewhere on their browser window but otherwise weren't intending to change anything.
+
+You can fix the keymap by using a VM property. Set this:
+
+    -DORG_JETBRAINS_PROJECTOR_SERVER_AUTO_KEYMAP=false
+
+Then restart the instance. There is more documentation about this feature [in JetBrains documentation](https://jetbrains.github.io/projector-client/mkdocs/latest/ij_user_guide/server_customization/#enable-auto-keymap-setting).
+
 ## How to know which version of the IDE to use?
 
 Log into a machine then do this:
