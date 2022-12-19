@@ -1,12 +1,39 @@
 # Ensemble Machine
-Support scripts for Samman Coaches to provision practice machines on AWS EC2. 
+Support scripts for Samman Coaches to provision practice machines on AWS EC2. This is useful for technical coaches who want participants to be able to very quickly get up and running writing code and unit tests in an exercise without having to install anything at all on their local machine.
 
-Before these will work you will need:
+## Create a new practice machine that uses JetBrains Projector
+Use this script:
+
+    python summon.py --help
+
+This script can create machines that use [JetBrains Projector](https://lp.jetbrains.com/projector/) so you can code in an IDE in a web browser without installing anything locally. 
+
+## List all the instances you have created
+Use this script:
+
+    $ python instances.py --help
+
+This should list all the machines you have started, and the urls your participants can use to access them.
+
+## Clone a code kata repo to a machine
+Use this script:
+
+    python clone_kata.py --help
+
+This is a convenience for copying the same kata starting position to all your machines. You will still need to go in by hand on each machine and navigate the IDE to open the relevant folder.
+
+## Shut down a machine
+Use the AWS console to change the state to "stopped". (We don't have a script for this yet).
+
+# Initial Setup
+Before these scripts will work you will need:
 * an account on AWS
 * AWS user with credentials for programmatic access to ec2 and route53
 * a aws_machine_spec.json file specifying default settings for machines in all regions.
 * a aws_zones.json file specifying pem file, images and security groups for each AWS region you want to use.
 * a DNS name your machines can use in their urls.
+
+The sections below go through all these items in turn.
 
 ### AWS user with credentials for programmatic access
 These scripts use a [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html) client to update your AWS configuration. The user should have access to both ec2 and route53. You set up new users in the "IAM" part of AWS. I created a UserGroup for my user with permissions:
@@ -70,45 +97,9 @@ The outbound rules that come by default seem to be ok - should allow all traffic
 ### Configure a DNS name for your machines to use
 Buy a suitable domain name, and update its name servers to point at the ones on AWS. Create a 'hosted zone' to administrate it. There are instructions [here](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/migrate-dns-domain-inactive.html). You are going to use the script 'update_dns.py' to add records to this hosted zone for all the machines you'll create with 'summon.py'. Note the hosted zone id and add it to your aws_machine_spec.json config file.
 
-## Create a new practice machine that uses JetBrains Projector
-Use this script:
+# Tips and troubleshooting
 
-    python summon.py --help
-
-## How to login to a summoned machine
-
-    sh login.sh 12.23.34.45
-
-... or DNS name:
-
-    sh login.sh b5f76de4-clion.codekata.proagile.link
-
-## How to delete an instance
-
-Use the AWS console
-
-## How to clone a repo to a machine
-Use this script:
-
-    python clone_kata.py --help
-
-## How to see what state the Projector instances have
-Use this script:
-
-    $ python instances.py
-    d5f4dba2-clion.codekata.proagile.link             stopped     ebjaolo
-    e32c9ea5-clion.codekata.proagile.link             stopped     ebjaolo
-    0899b6a8-clion.codekata.proagile.link             stopped     ebjaolo
-    46b0cd53-clion.codekata.proagile.link             stopped     emily
-
-# How to shut down a machine
-Note - this script is not aware of different aws profiles or regions:
-
-    sh turn_off_machine.sh b5f76de4-clion.codekata.proagile.link
-
-Otherwise - use the AWS console.
-
-# How to know which version of the IDE to use?
+## How to know which version of the IDE to use?
 
 Log into a machine then do this:
 
@@ -148,7 +139,7 @@ Log into a machine then do this:
     typist@ip-172-31-15-238:~$
 
 
-### How to troubleshoot Projector instances
+## How to troubleshoot Projector instances
 Log into the instance with ssh. Check whether the system service running PyCharm (or whatever) exists and what the latest log messages are:
 
 	sudo systemctl status pycharm
@@ -193,7 +184,7 @@ Log into machine and delete transient files:
    * Color schemes not modifiable. This is also a known bug, and it's not prioritized by JetBrains. Workaround:
       * Make the scheme and export it locally, import it to projector machine
 
-## Notes for other ide tools etc
+# Notes for other IDEs and tools
 
 ## Golang
 For goland  you need to additionally:
@@ -201,7 +192,7 @@ For goland  you need to additionally:
     - create a gopath eg /home/typist/gopath, and configure that in the IDE
     - run 'sudo apt-get install --reinstall ca-certificates' (maybe?)
 
-### C Test Framework cgreen
+## C Test Framework cgreen
 This is what I did to augment the clion config:
 
     - sh login.sh <machine dns or ip>
@@ -213,7 +204,7 @@ This is what I did to augment the clion config:
 
 In CMakeLists.txt files, find_package(cgreen) should then not crash
 
-### Erlang in IntelliJ
+## Erlang in IntelliJ
 Add the 'extra package' "erlang" to the IDE config
 additionally:
 
