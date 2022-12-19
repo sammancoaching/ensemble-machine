@@ -2,7 +2,7 @@ from update_dns import DnsUpdater
 
 
 def test_parse_machine_description():
-    updater = DnsUpdater({"url_stem": "codekata.proagile.link", "hosted_dns_zone_name": "proagile.link"},
+    updater = DnsUpdater({"url_stem": "codekata.proagile.link", "hosted_dns_zone_name": "proagile.link", "region": "eu-north-1"},
                          ["eu-north-1"])
     machine_descriptions = updater.machine_from_response(
         {

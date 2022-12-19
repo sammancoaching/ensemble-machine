@@ -230,7 +230,7 @@ def summon(config_name, region_name, aws_profile, classroom_size):
     #    response = ec2.monitor_instances(InstanceIds=['INSTANCE_ID'])
     #    https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Waiter.InstanceRunning
     time.sleep(15)
-    aws_regions = read_regions_config(aws_profile).keys()
+    aws_regions = read_regions_config(profile_name=aws_profile).keys()
     DnsUpdater(aws_defaults, aws_regions).update_ensemble_machine_dns_records()
 
 

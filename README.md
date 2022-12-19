@@ -3,10 +3,16 @@ Support scripts for Samman Coaches to provision practice machines on AWS EC2.
 
 Before these will work you will need:
 * an account on AWS
-* AWS credentials for programmatic access via [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html) 
+* AWS user with credentials for programmatic access to ec2 and route53
 * a aws_machine_spec.json file specifying default settings for machines in all regions.
 * a aws_zones.json file specifying pem file, images and security groups for each AWS region you want to use.
 * a DNS name your machines can use in their urls.
+
+### AWS user with credentials for programmatic access
+These scripts use a [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html) client to update your AWS configuration. The user should have access to both ec2 and route53. You set up new users in the "IAM" part of AWS. I created a UserGroup for my user with permissions:
+
+* AmazonEC2FullAccess
+* AmazonRoute53FullAccess
 
 ### AWS machine spec configuration file
 This file should be named "aws_machine_spec.json" and look something like this:
@@ -19,6 +25,7 @@ This file should be named "aws_machine_spec.json" and look something like this:
             "volume_size": 16,
             "coach_tag": "SammanCoach",
             "url_stem": "codekata.proagile.link",
+            "hosted_dns_zone_id": "Z09412383RT0WUSMP2I5",
             "hosted_dns_zone_name": "proagile.link."
           }
     }
@@ -59,6 +66,9 @@ You will want to create a new security group for your summoned machines. Create 
 * SSH for ipv4
 
 The outbound rules that come by default seem to be ok - should allow all traffic on all ports for ipv4.
+
+### Configure a DNS name for your machines to use
+Buy a suitable domain name, and update its name servers to point at the ones on AWS. Create a 'hosted zone' to administrate it. There are instructions [here](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/migrate-dns-domain-inactive.html). You are going to use the script 'update_dns.py' to add records to this hosted zone for all the machines you'll create with 'summon.py'. Note the hosted zone id and add it to your aws_machine_spec.json config file.
 
 ## Create a new practice machine that uses JetBrains Projector
 Use this script:
