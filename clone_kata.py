@@ -7,7 +7,8 @@ from dataclasses import dataclass
 import csv
 
 from instances import all_instances
-from summon import read_regions_config
+from summon import read_regions_config, read_aws_defaults
+
 
 @dataclass
 class KataMachine:
@@ -73,7 +74,10 @@ def clone_kata_commandline(kata):
 )
 def clone_kata(kata, region_name, aws_profile, host_ip, coach, classroom):
     commandline = clone_kata_commandline(kata)
-    machines = determine_machines_to_update(aws_profile, classroom, coach, host_ip, region_name)
+    aws_defaults = read_aws_defaults(profile_name=aws_profile)
+    url_stem = aws_defaults["url_stem"]
+    machines = determine_machines_to_update(aws_profile, classroom, coach, host_ip, region_name, url_stem)
+    logging.getLogger().info(f"will clone kata to machines: {[m.url for m in machines]}")
     run_commandline_on_machines(commandline, machines, aws_profile)
 
 
@@ -96,11 +100,12 @@ def connect_to_machine(machine, aws_profile):
     return c
 
 
-def determine_machines_to_update(aws_profile, classroom, coach, host_ip, region_name):
+def determine_machines_to_update(aws_profile, classroom, coach, host_ip, region_name, url_stem):
     running_instances = [machine for machine in all_instances(region_name, aws_profile) if
                          machine.state.strip() == "running"]
     if not running_instances:
-        print(f"ERROR: no running instances found in region {region_name}")
+        logging.getLogger().error(f"No running instances found in region {region_name}")
+        return []
     if host_ip:
         instance = [machine for machine in running_instances if host_ip in machine.ip_address]
         if not instance:
@@ -116,8 +121,8 @@ def determine_machines_to_update(aws_profile, classroom, coach, host_ip, region_
         with open(classroom, 'r', newline="", encoding="utf-8") as f:
             machines = read_classroom_file(f, running_instances)
     else:
-        print("ERROR: you must specify either a coach or a host_ip or a classroom file")
-        machines = []
+        machines = [KataMachine(host_ip=machine.ip_address, region_name=region_name, url=machine.url) for machine in
+                    running_instances if url_stem in machine.url]
     return machines
 
 

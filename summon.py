@@ -202,8 +202,13 @@ def write_classroom_file(f, instances):
     default=0,
     help="How many machines to create "
 )
-def summon(config_name, region_name, aws_profile, classroom_size):
-    coach = os.getlogin()
+@click.option(
+    "--coach",
+    default="Samman",
+    help="The name of the Samman Coach who owns these instances"
+)
+def summon(config_name, region_name, aws_profile, classroom_size, coach):
+    coach = coach or os.getlogin()
     session_id = secrets.token_hex(4)
     aws_defaults = read_aws_defaults(profile_name=aws_profile)
 
