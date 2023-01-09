@@ -114,15 +114,18 @@ def determine_machines_to_update(aws_profile, classroom, coach, host_ip, region_
         else:
             machines = [KataMachine(host_ip=host_ip, region_name=region_name, url=instance[0].url)]
     elif coach:
-        running_instances = [machine for machine in running_instances if machine.coach.strip() == coach]
-        machines = [KataMachine(host_ip=machine.ip_address, region_name=region_name, url=machine.url) for machine in
-                    running_instances]
+        running_instances = [machine
+                             for machine in running_instances
+                             if machine.coach.strip() == coach]
+        machines = [KataMachine(host_ip=machine.ip_address, region_name=region_name, url=machine.url)
+                    for machine in running_instances]
     elif classroom:
         with open(classroom, 'r', newline="", encoding="utf-8") as f:
             machines = read_classroom_file(f, running_instances)
     else:
-        machines = [KataMachine(host_ip=machine.ip_address, region_name=region_name, url=machine.url) for machine in
-                    running_instances if url_stem in machine.url]
+        machines = [KataMachine(host_ip=machine.ip_address, region_name=region_name, url=machine.url)
+                    for machine in running_instances
+                    if url_stem in machine.url]
     return machines
 
 

@@ -236,7 +236,7 @@ def summon(config_name, region_name, aws_profile, classroom_size, coach):
     #    https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Waiter.InstanceRunning
     time.sleep(15)
     aws_regions = read_regions_config(profile_name=aws_profile).keys()
-    DnsUpdater(aws_defaults, aws_regions).update_ensemble_machine_dns_records()
+    DnsUpdater(aws_defaults, aws_regions, aws_profile).update_ensemble_machine_dns_records()
 
 
 def summon_projector_instance(ec2, projector_instance: ProjectorInstance, profile_name, aws_defaults):
