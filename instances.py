@@ -26,7 +26,7 @@ class RunningInstance:
 )
 @click.option(
     "--aws-profile",
-    default=None,
+    default="default",
     help="the aws profile, if you dont use the default"
 )
 @click.option(

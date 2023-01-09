@@ -57,7 +57,7 @@ def clone_kata_commandline(kata):
 )
 @click.option(
     "--aws-profile",
-    default=None,
+    default="default",
     help="the aws profile, if you don't use the default"
 )
 @click.option(

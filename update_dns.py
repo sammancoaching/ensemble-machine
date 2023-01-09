@@ -54,7 +54,7 @@ class DnsUpdater:
             }]
         }
         self.route53.change_resource_record_sets(HostedZoneId=self.hosted_zone_id(), ChangeBatch=change_data)
-        self.log.info(f"Updated DNS info for {machine}")
+        self.log.debug(f"Updated DNS info for {machine}")
 
     def _list_machines_and_addresses(self):
         for ec2_client in self.ec2_region_clients:
@@ -66,7 +66,7 @@ class DnsUpdater:
         for reservation in reservations:
             for instance in reservation["Instances"]:
                 name = self._extract_name_tag(instance)
-                self.log.info(f"Discovered instance with name {name}")
+                self.log.debug(f"Discovered instance with name {name}")
                 if self.url_stem in name:
                     if "PublicIpAddress" in instance:
                         ip_address = instance["PublicIpAddress"]
@@ -96,7 +96,7 @@ class DnsUpdater:
             for zone in result["HostedZones"]:
                 if zone["Name"] == self.hosted_dns_zone_name:
                     self._pa_link_zone_id = zone["Id"]
-                    self.log.info(f"Using AWS Hosted Zone: {self._pa_link_zone_id}")
+                    self.log.debug(f"Using AWS Hosted Zone: {self._pa_link_zone_id}")
                     break
         if self._pa_link_zone_id is None:
             raise Exception(f"Couldn't find Zone ID for {self.hosted_dns_zone_name} - no work can be done")
@@ -109,17 +109,8 @@ class DnsUpdater:
     default="default",
     help="the aws profile"
 )
-@click.option(
-    "--verbose",
-    default=False,
-    is_flag=True,
-    help="extra info on what its doing"
-)
-def main(aws_profile, verbose):
-    if verbose:
-        logging.basicConfig(level=logging.INFO)
-    else:
-        logging.basicConfig(level=logging.WARNING)
+def main(aws_profile):
+    logging.basicConfig(level=logging.INFO)
 
     from summon import read_aws_defaults, read_regions_config
     aws_defaults = read_aws_defaults(profile_name=aws_profile)
