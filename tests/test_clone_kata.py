@@ -14,8 +14,8 @@ room,region,id,url,team,comments
 """
 	f = StringIO(classroom_file)
 	result = read_classroom_file(f, running_instances=[
-		RunningInstance("18.157.73.25", "running", "emily", "https://c7f3aa50-1-idea.codekata.proagile.link", "2022-01-31"),
-		RunningInstance("18.157.73.26", "running", "emily", "https://c7f3aa50-2-idea.codekata.proagile.link", "2022-01-31"),
+		RunningInstance("18.157.73.25", "running", "emily", "https://c7f3aa50-1-idea.codekata.proagile.link", "2022-01-31", region_name="eu-north-1"),
+		RunningInstance("18.157.73.26", "running", "emily", "https://c7f3aa50-2-idea.codekata.proagile.link", "2022-01-31", region_name="eu-north-1"),
 	])
 
 	verify_all("machines", result)

@@ -16,6 +16,7 @@ class RunningInstance:
     coach: str
     url: str
     creation_date: str
+    region_name: str
 
 
 @click.command()
@@ -41,10 +42,17 @@ def main(region_name, aws_profile, coach=None):
 
 
 def all_instances(region_name, aws_profile):
-    response = get_sammancoach_machines(region_name, aws_profile)
     url_stem = read_aws_defaults(profile_name=aws_profile)["url_stem"]
+    instances = []
+    if region_name == "all":
+        all_regions = read_regions_config(profile_name=aws_profile).keys()
+        for region_name in all_regions:
+            response = get_sammancoach_machines(region_name, aws_profile)
+            instances.extend(instances_from_response(response, url_stem))
+    else:
+        response = get_sammancoach_machines(region_name, aws_profile)
+        instances.extend(instances_from_response(response, url_stem))
 
-    instances = instances_from_response(response, url_stem)
     return instances
 
 
@@ -77,6 +85,7 @@ def instances_from_response(obj, url_stem):
                 "State": instance["State"]["Name"],
                 "IP": public_ip,
                 "AttachTime": attach_time_short,
+                "Placement": instance['Placement']['AvailabilityZone'],
             }
             for machine in tags:
                 key = machine['Key']
@@ -91,13 +100,15 @@ def instances_from_response(obj, url_stem):
                                        state=f"{machine['State']:12}",
                                        coach=f"{machine['SammanCoach']:12}",
                                        url=f"https://{machine['Name']:42}",
-                                       creation_date=f"{machine['AttachTime']}")
+                                       creation_date=f"{machine['AttachTime']}",
+                                       region_name=machine['Placement'],
+                                       )
             instances.append(instance)
     return instances
 
 
 def print_instance(instance: RunningInstance):
-    return f"{instance.ip_address} {instance.state} {instance.coach} {instance.url} {instance.creation_date}"
+    return f"{instance.ip_address} {instance.state} {instance.coach} {instance.url} {instance.creation_date} {instance.region_name}"
 
 
 def try_find_attach_time(instance):

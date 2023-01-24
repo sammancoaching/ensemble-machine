@@ -76,10 +76,18 @@ def clone_kata(kata, region_name, aws_profile, host_ip, coach, classroom):
     commandline = clone_kata_commandline(kata)
     aws_defaults = read_aws_defaults(profile_name=aws_profile)
     url_stem = aws_defaults["url_stem"]
+
+    if region_name == "all":
+        all_regions = read_regions_config(profile_name=aws_profile).keys()
+        for region_name in all_regions:
+            clone_to_machines_in_region(aws_profile, classroom, coach, host_ip, region_name, url_stem, commandline)
+    else:
+        clone_to_machines_in_region(aws_profile, classroom, coach, host_ip, region_name, url_stem, commandline)
+
+def clone_to_machines_in_region(aws_profile, classroom, coach, host_ip, region_name, url_stem, commandline):
     machines = determine_machines_to_update(aws_profile, classroom, coach, host_ip, region_name, url_stem)
     logging.getLogger().info(f"will clone kata to machines: {[m.url for m in machines]}")
     run_commandline_on_machines(commandline, machines, aws_profile)
-
 
 def run_commandline_on_machines(commandline, machines, aws_profile):
     for m in machines:
@@ -101,6 +109,7 @@ def connect_to_machine(machine, aws_profile):
 
 
 def determine_machines_to_update(aws_profile, classroom, coach, host_ip, region_name, url_stem):
+    logging.getLogger().info(f"finding machines to clone to in region {region_name}")
     running_instances = [machine for machine in all_instances(region_name, aws_profile) if
                          machine.state.strip() == "running"]
     if not running_instances:

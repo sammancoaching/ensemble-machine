@@ -38,7 +38,7 @@ def save_new_response_json():
 
 
 def test_print_instance():
-    instance = RunningInstance("18.157.73.25", "running", "emily", "99daacf1-rider.codekata.proagile.link", "2022-01-31")
+    instance = RunningInstance("18.157.73.25", "running", "emily", "99daacf1-rider.codekata.proagile.link", "2022-01-31", region_name="eu-north-1")
     verify(print_instance(instance))
 
 if __name__ == '__main__':
