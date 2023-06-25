@@ -22,8 +22,12 @@ Use this script:
 
 This is a convenience for copying the same kata starting position to all your machines. You will still need to go in by hand on each machine and navigate the IDE to open the relevant folder.
 
-## Shut down a machine
-Use the AWS console to change the state to "stopped". (We don't have a script for this yet).
+## Shut down all machines
+Use the script:
+
+    ./shutdown.py
+
+If you want to only shut down a few machines rather than all, use the AWS console to change the state to "stopped". 
 
 # Initial Setup
 Before these scripts will work you will need:

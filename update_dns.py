@@ -12,6 +12,77 @@ import boto3
 import click
 
 
+class InstancesManager:
+    def __init__(self, aws_defaults, aws_regions, profile_name=None):
+        self.log = logging.getLogger(__name__)
+
+        self.ec2_region_clients = []
+        for region in aws_regions:
+            region_session = boto3.Session(profile_name=profile_name, region_name=region)
+            region_client = region_session.client("ec2")
+            self.ec2_region_clients.append(region_client)
+
+        self.url_stem = aws_defaults["url_stem"]
+
+    def list_machines_and_addresses(self):
+        parser = InstanceDataParser(self.url_stem)
+        for ec2_client in self.ec2_region_clients:
+            result = ec2_client.describe_instances()
+            yield from parser.machine_from_instance_description(result)
+
+    def stop_all_machines(self):
+        parser = InstanceDataParser(self.url_stem)
+        for ec2_client in self.ec2_region_clients:
+            result = ec2_client.describe_instances()
+            machines = [id for id, name, ip in parser.machine_from_instance_description(result)]
+            if machines:
+                ec2_client.stop_instances(InstanceIds=machines)
+
+
+
+class InstanceDataParser:
+    def __init__(self, url_stem):
+        self.log = logging.getLogger(__name__)
+        self.url_stem = url_stem
+
+    def machine_from_instance_description(self, instance_description):
+        reservations = instance_description["Reservations"]
+        for reservation in reservations:
+            for instance in reservation["Instances"]:
+                name = self._extract_name_tag(instance)
+                self.log.debug(f"Discovered instance with name {name}")
+                instance_id = self._extract_instance_id(instance)
+                if self.url_stem in name:
+                    if "PublicIpAddress" in instance:
+                        ip_address = instance["PublicIpAddress"]
+                        self.log.info(f"found machine {name} with public ip address {ip_address}")
+                        yield instance_id, name, ip_address
+                    else:
+                        self.log.debug(f"found machine {name} but no public ip address - probably stopped")
+
+
+    def _extract_name_tag(self, instance):
+        try:
+            for tag in instance["Tags"]:
+                if tag["Key"] == "Name":
+                    name_tag = tag["Value"]
+                    self.log.debug(f"found machine with name {name_tag}")
+                    return name_tag
+        except KeyError as ke:
+            self.log.error(f"couldn't find Name Tag for machine {instance}", ke)
+            return "unknown"
+
+    def _extract_instance_id(self, instance):
+        try:
+            id_tag = instance["InstanceId"]
+            self.log.debug(f"found machine with id {id_tag}")
+            return id_tag
+        except KeyError as ke:
+            self.log.error(f"couldn't find id for machine {instance}", ke)
+            return "unknown"
+
+
+
 class DnsUpdater:
     def __init__(self, aws_defaults, aws_regions, profile_name=None):
         """ A DnsUpdater can change records in Route53 so that you get a human-readable url for your ensemble machines.
@@ -22,20 +93,14 @@ class DnsUpdater:
          """
         self.log = logging.getLogger(__name__)
 
+        self.instance_manager = InstancesManager(aws_defaults, aws_regions, profile_name)
         session = boto3.Session(profile_name=profile_name, region_name=aws_defaults["region"])
         self.route53 = session.client("route53")
-        self.ec2_region_clients = []
-        for region in aws_regions:
-            region_session = boto3.Session(profile_name=profile_name, region_name=region)
-            region_client = region_session.client("ec2")
-            self.ec2_region_clients.append(region_client)
-
-        self.url_stem = aws_defaults["url_stem"]
         self.hosted_dns_zone_name = aws_defaults["hosted_dns_zone_name"]
         self._pa_link_zone_id = aws_defaults.get("hosted_dns_zone_id", None)
 
     def update_ensemble_machine_dns_records(self):
-        for machine, ipv4 in self._list_machines_and_addresses():
+        for _, machine, ipv4 in self.instance_manager.list_machines_and_addresses():
             self.update_dns_record(machine, ipv4)
 
     def update_dns_record(self, machine, ipv4):
@@ -56,35 +121,6 @@ class DnsUpdater:
         self.route53.change_resource_record_sets(HostedZoneId=self.hosted_zone_id(), ChangeBatch=change_data)
         self.log.debug(f"Updated DNS info for {machine}")
 
-    def _list_machines_and_addresses(self):
-        for ec2_client in self.ec2_region_clients:
-            result = ec2_client.describe_instances()
-            yield from self.machine_from_response(result)
-
-    def machine_from_response(self, instance_description):
-        reservations = instance_description["Reservations"]
-        for reservation in reservations:
-            for instance in reservation["Instances"]:
-                name = self._extract_name_tag(instance)
-                self.log.debug(f"Discovered instance with name {name}")
-                if self.url_stem in name:
-                    if "PublicIpAddress" in instance:
-                        ip_address = instance["PublicIpAddress"]
-                        self.log.info(f"found machine {name} with public ip address {ip_address}, will update dns records")
-                        yield name, ip_address
-                    else:
-                        self.log.debug(f"found machine {name} but no public ip address - probably stopped")
-
-    def _extract_name_tag(self, instance):
-        try:
-            for tag in instance["Tags"]:
-                if tag["Key"] == "Name":
-                    name_tag = tag["Value"]
-                    self.log.debug(f"found machine with name {name_tag}")
-                    return name_tag
-        except KeyError as ke:
-            self.log.error(f"couldn't find Name Tag for machine {instance}", ke)
-            return "unknown"
 
     def hosted_zone_id(self):
         """ Use the route53 api to look up the hosted zone for this domain name.
