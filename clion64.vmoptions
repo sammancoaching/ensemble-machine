@@ -1,0 +1,22 @@
+# custom CLion VM options
+
+-Xmx2000m
+-XX:ReservedCodeCacheSize=512m
+-Xms256m
+-Xss2m
+-XX:NewSize=128m
+-XX:MaxNewSize=128m
+-XX:+UseG1GC
+-XX:SoftRefLRUPolicyMSPerMB=50
+-XX:CICompilerCount=2
+-XX:+HeapDumpOnOutOfMemoryError
+-XX:-OmitStackTraceInFastThrow
+-ea
+-Dsun.io.useCanonCaches=false
+-Djdk.http.auth.tunneling.disabledSchemes=""
+-Djdk.attach.allowAttachSelf=true
+-Djdk.module.illegalAccess.silent=true
+-Dkotlinx.coroutines.debug=off
+-Dsplash=true
+-Dsun.tools.attach.tmp.only=true
+-DORG_JETBRAINS_PROJECTOR_SERVER_AUTO_KEYMAP=false
